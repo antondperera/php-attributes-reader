@@ -1,2 +1,2 @@
-# php8-attributes-reader
-A simple Library to read PHP 8 attributes and the values
+# php-attributes-reader
+A simple Library to read/parse PHP 8 attributes and the values
