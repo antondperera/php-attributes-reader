@@ -16,6 +16,11 @@
             "AntonDPerera\\PHPAttributesReader\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "AntonDPerera\\PHPAttributesReader\\Tests\\": "tests/"
+        }
+    },
     "require": {
         "php": ">=8.1"
     },
