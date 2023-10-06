@@ -6,3 +6,6 @@
 - [x] Fix the vendor folder and the docker container issues.
 - [X] Arrange the Initial Reader with tests.
 - [X] Clean-up unwanted files.
+- [ ] Introduce Class Attributes processing and storing in Reader.
+- [ ] Introduce necessary functions and tests to read Class Attributes.
+- [ ] Finalize Class Attributes reading functionality.
