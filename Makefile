@@ -9,3 +9,6 @@ down:
 
 setup:
 	./docker-setup.sh
+
+run:
+	docker exec -it php-attributes-reader sh
