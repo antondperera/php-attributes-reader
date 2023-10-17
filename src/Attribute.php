@@ -9,11 +9,11 @@ use ReflectionAttribute;
 class Attribute
 {
     private null | string $name = null;
-    private null | string $class = null;
     private array $arguments = [];
 
     public function __construct(ReflectionAttribute $attribute)
     {
-
+        $this->name = $attribute->getName();
+        $this->arguments = $attribute->getArguments();
     }
 }
