@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace AntonDPerera\PHPAttributesReader\Tests;
 
-use PHPUnit\Framework\TestCase;
-use AntonDPerera\PHPAttributesReader\Attribute;
 use TypeError;
+use ReflectionClass;
+use PHPUnit\Framework\TestCase;
+
+use AntonDPerera\PHPAttributesReader\Attribute;
+use AntonDPerera\PHPAttributesReader\Tests\Fixtures\DummySimpleClassWithClassAttributes;
 
 class AttributeTest extends TestCase
 {
