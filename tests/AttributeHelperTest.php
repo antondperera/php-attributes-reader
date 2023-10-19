@@ -9,7 +9,7 @@ use ReflectionClass;
 use PHPUnit\Framework\TestCase;
 
 use AntonDPerera\PHPAttributesReader\Helpers\AttributeHelper;
-use AntonDPerera\PHPAttributesReader\Tests\Fixtures\DummySimpleClassWithClassAttributes;
+use AntonDPerera\PHPAttributesReader\Tests\Fixtures\DummySimpleClass1WithClassAttributes;
 
 class AttributeHelperTest extends TestCase
 {
@@ -34,7 +34,7 @@ class AttributeHelperTest extends TestCase
 
     public function testIsAValidAttributeWhenValidValueGiven(): void
     {
-        $reflection = new ReflectionClass(DummySimpleClassWithClassAttributes::class);
+        $reflection = new ReflectionClass(DummySimpleClass1WithClassAttributes::class);
         $class_attributes = $reflection->getAttributes();
         $actual = AttributeHelper::isAValidAttribute($class_attributes[0]);
         $this->assertTrue($actual);
