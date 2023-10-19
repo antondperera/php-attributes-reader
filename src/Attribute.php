@@ -6,14 +6,38 @@ namespace AntonDPerera\PHPAttributesReader;
 
 use ReflectionAttribute;
 
-class Attribute
+use AntonDPerera\PHPAttributesReader\Interfaces\AttributeInterface;
+
+class Attribute implements AttributeInterface
 {
+    private null | string $class = null;
     private null | string $name = null;
     private array $arguments = [];
 
     public function __construct(ReflectionAttribute $attribute)
     {
-        $this->name = $attribute->getName();
+        $this->class = $attribute->getName();
+        $this->name = $this->getClassBaseName($attribute->getName());
         $this->arguments = $attribute->getArguments();
+    }
+
+    private function getClassBaseName($fullNamespace) {
+        $parts = explode('\\', $fullNamespace);
+        return end($parts);
+    }
+
+    public function getClass(): string
+    {
+        return $this->class;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getArguments(): array
+    {
+        return $this->arguments;
     }
 }
