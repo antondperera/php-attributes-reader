@@ -30,10 +30,10 @@ class AttributeTest extends TestCase
     public function testExceptionWhenInvalidReflectionAttributeGiven(?string $class = null): void
     {
         $this->expectException(TypeError::class);
-        $reader = new Attribute($class);
+        new Attribute($class);
     }
 
-    public static function DummyClassesAndExpectedValueProvider(): array
+    public static function dummyClassesAndExpectedValueProvider(): array
     {
         return [
             [DummySimpleClass1WithClassAttributes::class, "TestAttribute"],
@@ -42,7 +42,7 @@ class AttributeTest extends TestCase
     }
 
     /**
-     * @dataProvider DummyClassesAndExpectedValueProvider
+     * @dataProvider dummyClassesAndExpectedValueProvider
      */
     public function testGetName(string $class, string $expected): void
     {
