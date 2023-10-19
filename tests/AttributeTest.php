@@ -9,7 +9,8 @@ use ReflectionClass;
 use PHPUnit\Framework\TestCase;
 
 use AntonDPerera\PHPAttributesReader\Attribute;
-use AntonDPerera\PHPAttributesReader\Tests\Fixtures\DummySimpleClassWithClassAttributes;
+use AntonDPerera\PHPAttributesReader\Tests\Fixtures\DummySimpleClass1WithClassAttributes;
+use AntonDPerera\PHPAttributesReader\Tests\Fixtures\DummySimpleClass2WithClassAttributes;
 
 class AttributeTest extends TestCase
 {
@@ -30,5 +31,24 @@ class AttributeTest extends TestCase
     {
         $this->expectException(TypeError::class);
         $reader = new Attribute($class);
+    }
+
+    public static function DummyClassesAndExpectedValueProvider(): array
+    {
+        return [
+            [DummySimpleClass1WithClassAttributes::class, "TestAttribute"],
+            [DummySimpleClass2WithClassAttributes::class, "TestAttribute3"]
+        ];
+    }
+
+    /**
+     * @dataProvider DummyClassesAndExpectedValueProvider
+     */
+    public function testGetName(string $class, string $expected): void
+    {
+        $reflection = new ReflectionClass($class);
+        $class_attributes = $reflection->getAttributes();
+        $attribute = new Attribute($class_attributes[0]);
+        $this->assertSame($expected,$attribute->getName());
     }
 }
