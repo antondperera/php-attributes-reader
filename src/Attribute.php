@@ -17,12 +17,12 @@ class Attribute implements AttributeInterface
     public function __construct(ReflectionAttribute $attribute)
     {
         $this->class = $attribute->getName();
-        $this->name = $this->getClassBaseName($attribute->getName());
+        $this->name = $this->getAttributeName($attribute->getName());
         $this->parameters = $attribute->getArguments();
     }
 
-    private function getClassBaseName($fullNamespace) {
-        $parts = explode('\\', $fullNamespace);
+    private function getAttributeName($attribute_class) {
+        $parts = explode('\\', $attribute_class);
         return end($parts);
     }
 
