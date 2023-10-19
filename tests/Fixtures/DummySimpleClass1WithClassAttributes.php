@@ -6,7 +6,7 @@ namespace AntonDPerera\PHPAttributesReader\Tests\Fixtures;
 
 #[TestAttribute]
 #[TestAttribute2("abc")]
-class DummySimpleClassWithClassAttributes
+class DummySimpleClass1WithClassAttributes
 {
 
 }
