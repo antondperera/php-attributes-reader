@@ -12,13 +12,13 @@ class Attribute implements AttributeInterface
 {
     private null | string $class = null;
     private null | string $name = null;
-    private array $arguments = [];
+    private array $parameters = [];
 
     public function __construct(ReflectionAttribute $attribute)
     {
         $this->class = $attribute->getName();
         $this->name = $this->getClassBaseName($attribute->getName());
-        $this->arguments = $attribute->getArguments();
+        $this->parameters = $attribute->getArguments();
     }
 
     private function getClassBaseName($fullNamespace) {
@@ -38,6 +38,6 @@ class Attribute implements AttributeInterface
 
     public function getArguments(): array
     {
-        return $this->arguments;
+        return $this->parameters;
     }
 }
