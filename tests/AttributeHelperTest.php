@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace AntonDPerera\PHPAttributesReader\Tests;
 
-use PHPUnit\Framework\TestCase;
-use AntonDPerera\PHPAttributesReader\Helpers\AttributeHelper;
 use stdClass;
 use ReflectionClass;
-use AntonDPerera\PHPAttributesReader\Tests\Fixtures\DummySimpleClassWithClassAttributes;
+use PHPUnit\Framework\TestCase;
+
+use AntonDPerera\PHPAttributesReader\Helpers\AttributeHelper;
+use AntonDPerera\PHPAttributesReader\Tests\Fixtures\DummySimpleClass1WithClassAttributes;
 
 class AttributeHelperTest extends TestCase
 {
@@ -33,7 +34,7 @@ class AttributeHelperTest extends TestCase
 
     public function testIsAValidAttributeWhenValidValueGiven(): void
     {
-        $reflection = new ReflectionClass(DummySimpleClassWithClassAttributes::class);
+        $reflection = new ReflectionClass(DummySimpleClass1WithClassAttributes::class);
         $class_attributes = $reflection->getAttributes();
         $actual = AttributeHelper::isAValidAttribute($class_attributes[0]);
         $this->assertTrue($actual);
