@@ -8,6 +8,7 @@
 - [X] Clean-up unwanted files.
 - [x] Introduce AttributeHelper class along with tests.
 - [x] Introduce Attribute class along with tests.
+- [x] Introduce hasArguments function into Attribute class along with tests.
 - [ ] Introduce Class Attributes processing and storing in Reader.
 - [ ] Introduce necessary functions and tests to read Class Attributes.
 - [ ] Finalize Class Attributes reading functionality.
