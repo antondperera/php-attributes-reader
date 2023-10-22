@@ -40,4 +40,9 @@ class Attribute implements AttributeInterface
     {
         return $this->arguments;
     }
+
+    public function hasArguments(): bool
+    {
+        return !empty($this->arguments);
+    }
 }
