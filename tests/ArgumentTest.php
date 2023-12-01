@@ -10,7 +10,7 @@ use AntonDPerera\PHPAttributesReader\Argument;
 
 class ArgumentTest extends TestCase
 {
-    public static function attributeArgumentProvider(): array
+    public static function attributeEmptyArgumentProvider(): array
     {
         return [
             [null, Argument::ARGUMENT_VALUE_TYPE_EMPTY],
@@ -22,7 +22,7 @@ class ArgumentTest extends TestCase
     }
 
     /**
-     * @dataProvider attributeArgumentProvider
+     * @dataProvider attributeEmptyArgumentProvider
      */
     public function testWhenArgumentValueIsEmpty(mixed $argument, int $expected): void
     {
