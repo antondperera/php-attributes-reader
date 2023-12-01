@@ -27,6 +27,10 @@ class Argument
 
     private function determineType(mixed $argument): int
     {
+        if(is_bool($argument)) {
+            return self::ARGUMENT_VALUE_TYPE_BOOLEAN;
+        }
+
         if(empty($argument)) {
             return self::ARGUMENT_VALUE_TYPE_EMPTY;
         }

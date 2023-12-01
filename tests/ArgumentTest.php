@@ -31,5 +31,23 @@ class ArgumentTest extends TestCase
 
     }
 
+    public static function booleanArgumentProvider(): array
+    {
+        return [
+            [true, Argument::ARGUMENT_VALUE_TYPE_BOOLEAN],
+            [false, Argument::ARGUMENT_VALUE_TYPE_BOOLEAN]
+        ];
+    }
+
+    /**
+     * @dataProvider booleanArgumentProvider
+     */
+    public function testWhenArgumentValueIsBoolean(mixed $argument, int $expected): void
+    {
+        $argument = new Argument($argument);
+        $this->assertSame($expected,$argument->getType());
+
+    }
+
     
 }
