@@ -27,8 +27,7 @@ class ArgumentTest extends TestCase
     public function testWhenArgumentValueIsEmpty(mixed $argument, int $expected): void
     {
         $argument = new Argument($argument);
-        $this->assertSame($expected,$argument->getType());
-
+        $this->assertSame($expected, $argument->getType());
     }
 
     public static function booleanArgumentProvider(): array
@@ -45,9 +44,37 @@ class ArgumentTest extends TestCase
     public function testWhenArgumentValueIsBoolean(mixed $argument, int $expected): void
     {
         $argument = new Argument($argument);
-        $this->assertSame($expected,$argument->getType());
-
+        $this->assertSame($expected, $argument->getType());
     }
 
-    
+    public static function sequentialArrayArgumentProvider(): array
+    {
+        return [
+            [
+                ["a"],
+                Argument::ARGUMENT_VALUE_TYPE_SEQUENTIAL_ARRAY
+            ],
+            [
+                ["a", "b"],
+                Argument::ARGUMENT_VALUE_TYPE_SEQUENTIAL_ARRAY
+            ],
+            [
+                [0, 1],
+                Argument::ARGUMENT_VALUE_TYPE_SEQUENTIAL_ARRAY
+            ],
+            [
+                [0 => "a", "b"],
+                Argument::ARGUMENT_VALUE_TYPE_SEQUENTIAL_ARRAY
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider sequentialArrayArgumentProvider
+     */
+    public function testWhenArgumentValueIsSequentialArray(mixed $argument, int $expected): void
+    {
+        $argument = new Argument($argument);
+        $this->assertSame($expected, $argument->getType());
+    }
 }

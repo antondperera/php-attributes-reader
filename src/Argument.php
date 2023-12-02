@@ -9,7 +9,7 @@ class Argument
     public const ARGUMENT_VALUE_TYPE_EMPTY = 0;
     public const ARGUMENT_VALUE_TYPE_BOOLEAN = 1;
     public const ARGUMENT_VALUE_TYPE_BASIC = 2;
-    public const ARGUMENT_VALUE_TYPE_INDEXED_ARRAY = 3;
+    public const ARGUMENT_VALUE_TYPE_SEQUENTIAL_ARRAY = 3;
     public const ARGUMENT_VALUE_TYPE_ASSOCIATIVE_ARRAY = 4;
     public const ARGUMENT_VALUE_TYPE_OBJECT = 5;
 
@@ -29,6 +29,16 @@ class Argument
     {
         if(is_bool($argument)) {
             return self::ARGUMENT_VALUE_TYPE_BOOLEAN;
+        }
+
+        if(empty($argument)) {
+            return self::ARGUMENT_VALUE_TYPE_EMPTY;
+        }
+
+        if(is_array($argument)) {
+            if(array_is_list($argument)) {
+                return self::ARGUMENT_VALUE_TYPE_SEQUENTIAL_ARRAY;
+            }
         }
 
         if(empty($argument)) {
