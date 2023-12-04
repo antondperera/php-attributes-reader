@@ -10,7 +10,7 @@ use AntonDPerera\PHPAttributesReader\Argument;
 
 class ArgumentTest extends TestCase
 {
-    public static function emptyArgumentProvider(): array
+    public static function emptyArgumentsProvider(): array
     {
         return [
             [null, Argument::ARGUMENT_VALUE_TYPE_EMPTY],
@@ -22,7 +22,7 @@ class ArgumentTest extends TestCase
     }
 
     /**
-     * @dataProvider emptyArgumentProvider
+     * @dataProvider emptyArgumentsProvider
      */
     public function testWhenArgumentValueIsEmpty(mixed $argument, int $expected): void
     {
@@ -30,7 +30,7 @@ class ArgumentTest extends TestCase
         $this->assertSame($expected, $argument->getType());
     }
 
-    public static function booleanArgumentProvider(): array
+    public static function booleanArgumentsProvider(): array
     {
         return [
             [true, Argument::ARGUMENT_VALUE_TYPE_BOOLEAN],
@@ -39,7 +39,7 @@ class ArgumentTest extends TestCase
     }
 
     /**
-     * @dataProvider booleanArgumentProvider
+     * @dataProvider booleanArgumentsProvider
      */
     public function testWhenArgumentValueIsBoolean(mixed $argument, int $expected): void
     {
@@ -47,7 +47,7 @@ class ArgumentTest extends TestCase
         $this->assertSame($expected, $argument->getType());
     }
 
-    public static function sequentialArrayArgumentProvider(): array
+    public static function sequentialArrayArgumentsProvider(): array
     {
         return [
             [
@@ -70,7 +70,7 @@ class ArgumentTest extends TestCase
     }
 
     /**
-     * @dataProvider sequentialArrayArgumentProvider
+     * @dataProvider sequentialArrayArgumentsProvider
      */
     public function testWhenArgumentValueIsSequentialArray(mixed $argument, int $expected): void
     {
