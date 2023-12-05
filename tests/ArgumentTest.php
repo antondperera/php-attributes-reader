@@ -77,4 +77,55 @@ class ArgumentTest extends TestCase
         $argument = new Argument($argument);
         $this->assertSame($expected, $argument->getType());
     }
+
+    public static function associativeArrayArgumentsProvider(): array
+    {
+        return [
+            [
+                [ 1 => "a" ],
+                Argument::ARGUMENT_VALUE_TYPE_ASSOCIATIVE_ARRAY
+            ],
+            [
+                [ "a" => 1 ],
+                Argument::ARGUMENT_VALUE_TYPE_ASSOCIATIVE_ARRAY
+            ],
+            [
+                [ 
+                    "a" => 1, 
+                    "b" => "c", 
+                ],
+                Argument::ARGUMENT_VALUE_TYPE_ASSOCIATIVE_ARRAY
+            ],
+            [
+                [ 
+                    "a" => 1, 
+                    "b" => []
+                ],
+                Argument::ARGUMENT_VALUE_TYPE_ASSOCIATIVE_ARRAY
+            ],
+            [
+                [ 
+                    "a" => 1, 
+                    "b" => ["c", "d"]
+                ],
+                Argument::ARGUMENT_VALUE_TYPE_ASSOCIATIVE_ARRAY
+            ],
+            [
+                [ 
+                    "a" => 1, 
+                    "b" => (object)["c", "d"]
+                ],
+                Argument::ARGUMENT_VALUE_TYPE_ASSOCIATIVE_ARRAY
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider associativeArrayArgumentsProvider
+     */
+    public function testWhenArgumentValueIsAssociativeArray(mixed $argument, int $expected): void
+    {
+        $argument = new Argument($argument);
+        $this->assertSame($expected, $argument->getType());
+    }
 }
