@@ -44,8 +44,8 @@ class Argument
             return self::ARGUMENT_VALUE_TYPE_ASSOCIATIVE_ARRAY;
         }
 
-        if(empty($argument)) {
-            return self::ARGUMENT_VALUE_TYPE_EMPTY;
+        if(is_object($argument)) {
+            return self::ARGUMENT_VALUE_TYPE_OBJECT;
         }
 
         return self::ARGUMENT_VALUE_TYPE_OTHER;

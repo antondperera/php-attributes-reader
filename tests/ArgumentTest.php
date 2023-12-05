@@ -8,6 +8,8 @@ use PHPUnit\Framework\TestCase;
 
 use AntonDPerera\PHPAttributesReader\Argument;
 
+use AntonDPerera\PHPAttributesReader\Tests\Fixtures\DummySimpleClass1WithClassAttributes;
+
 class ArgumentTest extends TestCase
 {
     public static function emptyArgumentsProvider(): array
@@ -124,6 +126,50 @@ class ArgumentTest extends TestCase
      * @dataProvider associativeArrayArgumentsProvider
      */
     public function testWhenArgumentValueIsAssociativeArray(mixed $argument, int $expected): void
+    {
+        $argument = new Argument($argument);
+        $this->assertSame($expected, $argument->getType());
+    }
+
+    public static function objectArgumentsProvider(): array
+    {
+        return [
+            [
+                (object)[ "a" => 1],
+                Argument::ARGUMENT_VALUE_TYPE_OBJECT
+            ],
+            [
+                (object)[ 
+                    "a" => 1, 
+                    "b" => "c", 
+                ],
+                Argument::ARGUMENT_VALUE_TYPE_OBJECT
+            ],
+            [
+                (object)[ 
+                    "a" => 1, 
+                    "b" => ["c", "d"]
+                ],
+                Argument::ARGUMENT_VALUE_TYPE_OBJECT
+            ],
+            [
+                (object)[ 
+                    "a" => 1, 
+                    "b" => (object)["c", "d"]
+                ],
+                Argument::ARGUMENT_VALUE_TYPE_OBJECT
+            ],
+            [
+                new DummySimpleClass1WithClassAttributes(),
+                Argument::ARGUMENT_VALUE_TYPE_OBJECT
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider objectArgumentsProvider
+     */
+    public function testWhenArgumentValueIsObject(mixed $argument, int $expected): void
     {
         $argument = new Argument($argument);
         $this->assertSame($expected, $argument->getType());
