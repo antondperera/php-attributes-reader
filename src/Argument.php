@@ -48,6 +48,18 @@ class Argument
             return self::ARGUMENT_VALUE_TYPE_OBJECT;
         }
 
+        if(is_float($argument)) {
+            return self::ARGUMENT_VALUE_TYPE_FLOAT;
+        }
+
+        if(is_int($argument)) {
+            return self::ARGUMENT_VALUE_TYPE_INT;
+        }
+
+        if(is_string($argument)) {
+            return self::ARGUMENT_VALUE_TYPE_STRING;
+        }
+
         return self::ARGUMENT_VALUE_TYPE_OTHER;
     }
 

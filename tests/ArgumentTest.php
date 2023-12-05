@@ -174,4 +174,28 @@ class ArgumentTest extends TestCase
         $argument = new Argument($argument);
         $this->assertSame($expected, $argument->getType());
     }
+
+    public static function SimpleValueTypesArgumentsProvider(): array
+    {
+        return [
+            [0.23, Argument::ARGUMENT_VALUE_TYPE_FLOAT],
+            [0.23754, Argument::ARGUMENT_VALUE_TYPE_FLOAT],
+            [20, Argument::ARGUMENT_VALUE_TYPE_INT],
+            [1000, Argument::ARGUMENT_VALUE_TYPE_INT],
+            ["0.0", Argument::ARGUMENT_VALUE_TYPE_STRING],
+            ["10.20", Argument::ARGUMENT_VALUE_TYPE_STRING],
+            ["ABCD", Argument::ARGUMENT_VALUE_TYPE_STRING],
+            ["abcd", Argument::ARGUMENT_VALUE_TYPE_STRING],
+            ["!^&$%", Argument::ARGUMENT_VALUE_TYPE_STRING],
+        ];
+    }
+
+    /**
+     * @dataProvider SimpleValueTypesArgumentsProvider
+     */
+    public function testWhenArgumentValueIsASimpleDataType(mixed $argument, int $expected): void
+    {
+        $argument = new Argument($argument);
+        $this->assertSame($expected, $argument->getType());
+    }
 }
