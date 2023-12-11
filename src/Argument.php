@@ -29,34 +29,34 @@ class Argument
 
     private function determineType(mixed $argument): int
     {
-        if(is_bool($argument)) {
+        if (is_bool($argument)) {
             return self::ARGUMENT_VALUE_TYPE_BOOLEAN;
         }
 
-        if(empty($argument)) {
+        if (empty($argument)) {
             return self::ARGUMENT_VALUE_TYPE_EMPTY;
         }
 
-        if(is_array($argument)) {
-            if(array_is_list($argument)) {
+        if (is_array($argument)) {
+            if (array_is_list($argument)) {
                 return self::ARGUMENT_VALUE_TYPE_SEQUENTIAL_ARRAY;
             }
             return self::ARGUMENT_VALUE_TYPE_ASSOCIATIVE_ARRAY;
         }
 
-        if(is_object($argument)) {
+        if (is_object($argument)) {
             return self::ARGUMENT_VALUE_TYPE_OBJECT;
         }
 
-        if(is_float($argument)) {
+        if (is_float($argument)) {
             return self::ARGUMENT_VALUE_TYPE_FLOAT;
         }
 
-        if(is_int($argument)) {
+        if (is_int($argument)) {
             return self::ARGUMENT_VALUE_TYPE_INT;
         }
 
-        if(is_string($argument)) {
+        if (is_string($argument)) {
             return self::ARGUMENT_VALUE_TYPE_STRING;
         }
 

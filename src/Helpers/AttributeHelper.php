@@ -10,7 +10,9 @@ class AttributeHelper
 {
     public static function isAValidAttribute(mixed $attribute): bool
     {
-        if(empty($attribute)) { return false; }
+        if (empty($attribute)) {
+            return false;
+        }
 
         return $attribute instanceof ReflectionAttribute;
     }

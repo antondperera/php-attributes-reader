@@ -84,37 +84,37 @@ class ArgumentTest extends TestCase
     {
         return [
             [
-                [ 1 => "a" ],
+                [1 => "a"],
                 Argument::ARGUMENT_VALUE_TYPE_ASSOCIATIVE_ARRAY
             ],
             [
-                [ "a" => 1 ],
+                ["a" => 1],
                 Argument::ARGUMENT_VALUE_TYPE_ASSOCIATIVE_ARRAY
             ],
             [
-                [ 
-                    "a" => 1, 
-                    "b" => "c", 
+                [
+                    "a" => 1,
+                    "b" => "c",
                 ],
                 Argument::ARGUMENT_VALUE_TYPE_ASSOCIATIVE_ARRAY
             ],
             [
-                [ 
-                    "a" => 1, 
+                [
+                    "a" => 1,
                     "b" => []
                 ],
                 Argument::ARGUMENT_VALUE_TYPE_ASSOCIATIVE_ARRAY
             ],
             [
-                [ 
-                    "a" => 1, 
+                [
+                    "a" => 1,
                     "b" => ["c", "d"]
                 ],
                 Argument::ARGUMENT_VALUE_TYPE_ASSOCIATIVE_ARRAY
             ],
             [
-                [ 
-                    "a" => 1, 
+                [
+                    "a" => 1,
                     "b" => (object)["c", "d"]
                 ],
                 Argument::ARGUMENT_VALUE_TYPE_ASSOCIATIVE_ARRAY
@@ -135,26 +135,26 @@ class ArgumentTest extends TestCase
     {
         return [
             [
-                (object)[ "a" => 1],
+                (object)["a" => 1],
                 Argument::ARGUMENT_VALUE_TYPE_OBJECT
             ],
             [
-                (object)[ 
-                    "a" => 1, 
-                    "b" => "c", 
+                (object)[
+                    "a" => 1,
+                    "b" => "c",
                 ],
                 Argument::ARGUMENT_VALUE_TYPE_OBJECT
             ],
             [
-                (object)[ 
-                    "a" => 1, 
+                (object)[
+                    "a" => 1,
                     "b" => ["c", "d"]
                 ],
                 Argument::ARGUMENT_VALUE_TYPE_OBJECT
             ],
             [
-                (object)[ 
-                    "a" => 1, 
+                (object)[
+                    "a" => 1,
                     "b" => (object)["c", "d"]
                 ],
                 Argument::ARGUMENT_VALUE_TYPE_OBJECT

@@ -21,9 +21,14 @@ class Attribute implements AttributeInterface
         $this->arguments = $attribute->getArguments();
     }
 
-    private function getAttributeName($attribute_class) {
+    private function getAttributeName($attribute_class)
+    {
         $parts = explode('\\', $attribute_class);
         return end($parts);
+    }
+
+    private function initializeArgumentsList(): void
+    {
     }
 
     public function getClass(): string

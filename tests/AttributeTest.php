@@ -49,7 +49,7 @@ class AttributeTest extends TestCase
         $reflection = new ReflectionClass($class);
         $class_attributes = $reflection->getAttributes();
         $attribute = new Attribute($class_attributes[0]);
-        $this->assertSame($expected,$attribute->getName());
+        $this->assertSame($expected, $attribute->getName());
     }
 
     public static function dummyClassesAndExpectedValueProviderForHasArguments(): array
@@ -71,6 +71,6 @@ class AttributeTest extends TestCase
         $reflection = new ReflectionClass($class);
         $class_attributes = $reflection->getAttributes();
         $attribute = new Attribute($class_attributes[$attribute_index]);
-        $this->assertSame($expected,$attribute->hasArguments());
+        $this->assertSame($expected, $attribute->hasArguments());
     }
 }
