@@ -9,8 +9,10 @@ use ReflectionClass;
 use PHPUnit\Framework\TestCase;
 
 use AntonDPerera\PHPAttributesReader\Attribute;
+use AntonDPerera\PHPAttributesReader\Argument;
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\DummySimpleClass1WithClassAttributes;
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\DummySimpleClass2WithClassAttributes;
+use AntonDPerera\PHPAttributesReader\Tests\Fixtures\DummySimpleClass3WithClassAttributesAndComplexArguments;
 
 class AttributeTest extends TestCase
 {
@@ -72,5 +74,76 @@ class AttributeTest extends TestCase
         $class_attributes = $reflection->getAttributes();
         $attribute = new Attribute($class_attributes[$attribute_index]);
         $this->assertSame($expected, $attribute->hasArguments());
+    }
+
+    public static function dummyClassesAndExpectedValueProviderForGetArguments(): array
+    {
+        return [
+            [
+                DummySimpleClass1WithClassAttributes::class,
+                1,
+                [
+                    new Argument("abc")
+                ]
+            ],
+            [
+                DummySimpleClass2WithClassAttributes::class,
+                3,
+                [
+                    new Argument(0)
+                ]
+            ],
+            [
+                DummySimpleClass2WithClassAttributes::class,
+                4,
+                [
+                    new Argument("abc")
+                ]
+            ],
+            [
+                DummySimpleClass3WithClassAttributesAndComplexArguments::class,
+                0,
+                [
+                    new Argument((object)["property1"=>"property1 value"])
+                ]
+            ],
+            [
+                DummySimpleClass3WithClassAttributesAndComplexArguments::class,
+                1,
+                [
+                    new Argument(["key1"=>"key1 value"])
+                ]
+            ],
+            [
+                DummySimpleClass3WithClassAttributesAndComplexArguments::class,
+                2,
+                [
+                    new Argument(10.13)
+                ]
+            ],
+            [
+                DummySimpleClass3WithClassAttributesAndComplexArguments::class,
+                3,
+                [
+                    new Argument(123)
+                ]
+            ],
+            [
+                DummySimpleClass3WithClassAttributesAndComplexArguments::class,
+                4,
+                []
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider dummyClassesAndExpectedValueProviderForGetArguments
+     */
+    public function testGetArguments(string $class, int $attribute_index, array $expected): void
+    {
+        $reflection = new ReflectionClass($class);
+        $class_attributes = $reflection->getAttributes();
+        $attribute = new Attribute($class_attributes[$attribute_index]);
+        $this->assertEquals($expected, $attribute->getArguments());
     }
 }
