@@ -21,7 +21,7 @@ class Argument
     private mixed $value = null;
     private mixed $type = null;
 
-    public function __construct(mixed $argument)
+    public function __construct(mixed $argument = null)
     {
         $this->type = $this->determineType($argument);
         $this->value = $argument;
