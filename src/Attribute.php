@@ -18,12 +18,22 @@ class Attribute implements AttributeInterface
     {
         $this->class = $attribute->getName();
         $this->name = $this->getAttributeName($attribute->getName());
-        $this->arguments = $attribute->getArguments();
+        $this->arguments = $this->getArgumentsList($attribute);
     }
 
-    private function getAttributeName($attribute_class) {
+    private function getAttributeName($attribute_class)
+    {
         $parts = explode('\\', $attribute_class);
         return end($parts);
+    }
+
+    private function getArgumentsList(ReflectionAttribute $attribute): array
+    {
+        $arguments_list = [];
+        foreach ($attribute->getArguments() as $argument) {
+            $arguments_list[] = new Argument($argument);
+        }
+        return $arguments_list;
     }
 
     public function getClass(): string

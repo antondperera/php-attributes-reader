@@ -11,5 +11,4 @@ namespace AntonDPerera\PHPAttributesReader\Tests\Fixtures;
 #[TestAttribute3("abc")]
 class DummySimpleClass2WithClassAttributes
 {
-
 }

@@ -36,7 +36,7 @@ class ReaderTest extends TestCase
             ["notExistingClass"],
             ["SomeDummyNotExistingClass"],
             ["class"],
-            [notExistingClass::class],            
+            [notExistingClass::class],
         ];
     }
 
