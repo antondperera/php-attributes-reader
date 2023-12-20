@@ -110,4 +110,30 @@ class ReaderTest extends TestCase
         $actual = $attribute->getArguments();
         $this->assertSame($expected, $actual);
     }
+
+    public static function classAttributesWithArgumentsProvider(): array
+    {
+        return [
+            [DummySimpleClass1WithClassAttributes::class, 1, 0, 'abc'],
+            [DummySimpleClass2WithClassAttributes::class, 2, 0, ''],
+            [DummySimpleClass2WithClassAttributes::class, 3, 0, 0],
+            [DummySimpleClass2WithClassAttributes::class, 4, 0, 'abc'],
+            [DummySimpleClass3WithClassAttributesAndComplexArguments::class, 0, 0, (object)["property1"=>"property1 value"]],
+            [DummySimpleClass3WithClassAttributesAndComplexArguments::class, 1, 0, ["key1"=>"key1 value"]],
+            [DummySimpleClass3WithClassAttributesAndComplexArguments::class, 2, 0, 10.13],
+            [DummySimpleClass3WithClassAttributesAndComplexArguments::class, 3, 0, 123],
+            [DummySimpleClass3WithClassAttributesAndComplexArguments::class, 5, 0, ["value1", "value2"]],
+        ];
+    }
+
+    /**
+     * @dataProvider classAttributesWithArgumentsProvider
+     */
+    public function testGetClassAttributesWithArguments(string $class, int $attribute_index, int $argument_index, mixed $expected): void
+    {
+        $reader = new Reader($class);
+        $attribute = $reader->getClassAttributes()[$attribute_index];
+        $argument = $attribute->getArguments()[$argument_index];
+        $this->assertEquals($expected, $argument->getValue());
+    }
 }
