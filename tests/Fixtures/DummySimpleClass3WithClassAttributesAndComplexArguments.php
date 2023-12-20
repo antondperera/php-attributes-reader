@@ -11,6 +11,7 @@ define("DUMMY_ARGUMENT_OBJECT", (object)["property1"=>"property1 value"]);
 #[TestAttribute12(10.13)]
 #[TestAttribute13(123)]
 #[TestAttribute14()]
+#[TestAttribute15(["value1", "value2"])]
 class DummySimpleClass3WithClassAttributesAndComplexArguments
 {
 }
