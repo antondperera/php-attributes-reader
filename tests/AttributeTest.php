@@ -132,6 +132,13 @@ class AttributeTest extends TestCase
                 DummySimpleClass3WithClassAttributesAndComplexArguments::class,
                 4,
                 []
+            ],
+            [
+                DummySimpleClass3WithClassAttributesAndComplexArguments::class,
+                5,
+                [
+                    new Argument(["value1", "value2"])
+                ]
             ]
         ];
     }
