@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace AntonDPerera\PHPAttributesReader\Tests\Fixtures;
+namespace AntonDPerera\PHPAttributesReader\Tests\Fixtures\ClassAttributes;
 
 define("DUMMY_ARGUMENT_OBJECT", (object)["property1"=>"property1 value"]);
 

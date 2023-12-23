@@ -8,10 +8,10 @@ use PHPUnit\Framework\TestCase;
 use AntonDPerera\PHPAttributesReader\Reader;
 use AntonDPerera\PHPAttributesReader\Exceptions\InvalidClassException;
 use AntonDPerera\PHPAttributesReader\Exceptions\ClassNotFoundException;
-use AntonDPerera\PHPAttributesReader\Tests\Fixtures\DummySimpleClass0WithoutClassAttributes;
-use AntonDPerera\PHPAttributesReader\Tests\Fixtures\DummySimpleClass1WithClassAttributes;
-use AntonDPerera\PHPAttributesReader\Tests\Fixtures\DummySimpleClass2WithClassAttributes;
-use AntonDPerera\PHPAttributesReader\Tests\Fixtures\DummySimpleClass3WithClassAttributesAndComplexArguments;
+use AntonDPerera\PHPAttributesReader\Tests\Fixtures\ClassAttributes\DummySimpleClass0WithoutClassAttributes;
+use AntonDPerera\PHPAttributesReader\Tests\Fixtures\ClassAttributes\DummySimpleClass1WithClassAttributes;
+use AntonDPerera\PHPAttributesReader\Tests\Fixtures\ClassAttributes\DummySimpleClass2WithClassAttributes;
+use AntonDPerera\PHPAttributesReader\Tests\Fixtures\ClassAttributes\DummySimpleClass3WithClassAttributesAndComplexArguments;
 
 class ReaderTest extends TestCase
 {
