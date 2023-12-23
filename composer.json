@@ -1,7 +1,7 @@
 {
     "name": "antondperera/php-attributes-reader",
     "type": "library",
-    "version": "1.0.0",
+    "version": "0.1.0",
     "description": "Simple PHP Attributes Reader/Parser",
     "keywords": ["php", "library", "php-attributes-reader"],
     "license": "MIT",
