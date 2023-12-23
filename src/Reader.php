@@ -13,6 +13,7 @@ class Reader
 {
     private string $class = "";
     private array $class_attributes = [];
+    private array $method_attributes = [];
 
     public function __construct(?string $class = null)
     {
@@ -25,6 +26,7 @@ class Reader
 
         $this->class = $class;
         $this->processClassAttributes();
+        $this->processMethodAttributes();
     }
 
     public function processClassAttributes(): void
@@ -44,5 +46,33 @@ class Reader
     public function hasClassAttributes(): bool
     {
         return !empty($this->class_attributes);
+    }
+
+    public function processMethodAttributes(): void
+    {
+        $reflection = new ReflectionClass($this->class);
+        $reflection_methods = $reflection->getMethods();
+        foreach ($reflection_methods as $reflection_method) {
+            $method_attributes = $reflection_method->getAttributes();
+            foreach ($method_attributes as $reflection_attribute) {
+                $attribute = new Attribute($reflection_attribute);
+                $this->method_attributes[$reflection_method->getName()][$attribute->getName()][] = $attribute;
+            }
+        }
+    }
+
+    public function getAllMethodAttributes(): array
+    {
+        return $this->method_attributes;
+    }
+
+    public function getAttributesByMethodName(string $method_name): array
+    {
+        return $this->method_attributes[$method_name];
+    }
+
+    public function getAttributeByMethodName(string $method_name, string $attribute_name): Attribute
+    {
+        return $this->method_attributes[$method_name][$attribute_name];
     }
 }
