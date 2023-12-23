@@ -13,7 +13,7 @@ use AntonDPerera\PHPAttributesReader\Tests\Fixtures\ClassAttributes\DummySimpleC
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\ClassAttributes\DummySimpleClass2WithClassAttributes;
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\ClassAttributes\DummySimpleClass3WithClassAttributesAndComplexArguments;
 
-class ReaderTest extends TestCase
+class ReaderClassAttributesTest extends TestCase
 {
     public static function invalidClassValueProvider(): array
     {
