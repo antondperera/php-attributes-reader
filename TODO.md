@@ -6,7 +6,6 @@
 - [x] Fix the vendor folder and the docker container issues.
 - [X] Arrange the Initial Reader with tests.
 - [X] Clean-up unwanted files.
-- [x] Introduce AttributeHelper class along with tests.
 - [x] Introduce Attribute class along with tests.
 - [x] Introduce hasArguments function into Attribute class along with tests.
 - [x] Introduce Argument class with necessary tests.
