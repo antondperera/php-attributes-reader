@@ -56,7 +56,7 @@ class Reader
             $method_attributes = $reflection_method->getAttributes();
             foreach ($method_attributes as $reflection_attribute) {
                 $attribute = new Attribute($reflection_attribute);
-                $this->method_attributes[$reflection_method->getName()][$attribute->getName()][] = $attribute;
+                $this->method_attributes[$reflection_method->getName()][$attribute->getName()] = $attribute;
             }
         }
     }
@@ -66,13 +66,13 @@ class Reader
         return $this->method_attributes;
     }
 
-    public function getAttributesByMethodName(string $method_name): array
+    public function getMethodAttributesByMethodName(string $method_name): ?array
     {
-        return $this->method_attributes[$method_name];
+        return $this->method_attributes[$method_name] ?? null;
     }
 
-    public function getAttributeByMethodName(string $method_name, string $attribute_name): Attribute
+    public function getMethodAttributeByAttributeName(string $method_name, string $attribute_name): Attribute
     {
-        return $this->method_attributes[$method_name][$attribute_name];
+        return $this->method_attributes[$method_name][$attribute_name] ?? null;
     }
 }
