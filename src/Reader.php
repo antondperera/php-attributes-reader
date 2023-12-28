@@ -10,11 +10,12 @@ use AntonDPerera\PHPAttributesReader\Exceptions\InvalidClassException;
 use AntonDPerera\PHPAttributesReader\Exceptions\ClassNotFoundException;
 use AntonDPerera\PHPAttributesReader\Exceptions\MethodNotFoundException;
 use AntonDPerera\PHPAttributesReader\Exceptions\AttributeNotFoundException;
+use AntonDPerera\PHPAttributesReader\Traits\ClassAttributesSupport;
 
 class Reader
 {
-    private string $class = "";
-    private array $class_attributes = [];
+    use ClassAttributesSupport;
+
     private array $method_attributes = [];
 
     public function __construct(?string $class = null)
@@ -29,34 +30,6 @@ class Reader
         $this->class = $class;
         $this->processClassAttributes();
         $this->processMethodAttributes();
-    }
-
-    public function processClassAttributes(): void
-    {
-        $reflection = new ReflectionClass($this->class);
-        $class_attributes = $reflection->getAttributes();
-        foreach ($class_attributes as $reflection_attribute) {
-            $attribute = new Attribute($reflection_attribute);
-            $this->class_attributes[$attribute->getName()] = $attribute;
-        }
-    }
-
-    public function getClassAttributes(): array
-    {
-        return $this->class_attributes;
-    }
-
-    public function hasClassAttributes(): bool
-    {
-        return !empty($this->class_attributes);
-    }
-
-    public function getClassAttribute(string $attribute_name): ?Attribute
-    {
-        if (!array_key_exists($attribute_name, $this->class_attributes)) {
-            throw new AttributeNotFoundException("Attribute {$attribute_name} not found in the Class Attributes list.");
-        }
-        return $this->class_attributes[$attribute_name];
     }
 
     public function processMethodAttributes(): void
