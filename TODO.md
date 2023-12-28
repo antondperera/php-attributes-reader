@@ -18,6 +18,8 @@
 - [x] [Issue #28](https://github.com/antondperera/php-attributes-reader/issues/28) Introduce necessary logic to prepare a list of Method Attributes and keep that in Reader class along with necessary tests.
 - [ ] Introduce getClassAttributeByAttributeName() function into Reader along with tests.
 - [ ] Refactor Reader class and introduce multiple traits to group similar functions in each trait than having it inside the Reader class.
+- [ ] Refactor get method attributes related functions to simplify things with the public API(public functions) and handle things internally.
+- [ ] Introduce separate AttributeNotFound exceptions for Class, Method and Properties separately.
 - [ ] Introduce necessary logic to prepare a list of Property Attributes and keep that in Reader class along with necessary tests.
 
 
