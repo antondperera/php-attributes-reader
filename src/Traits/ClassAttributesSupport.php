@@ -34,7 +34,7 @@ trait ClassAttributesSupport
         return !empty($this->class_attributes);
     }
 
-    public function getClassAttribute(string $attribute_name): ?Attribute
+    public function getClassAttribute(string $attribute_name): null | Attribute | AttributeNotFoundException
     {
         if (!array_key_exists($attribute_name, $this->class_attributes)) {
             throw new AttributeNotFoundException("Attribute {$attribute_name} not found in the Class Attributes list.");
