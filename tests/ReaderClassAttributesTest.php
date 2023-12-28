@@ -148,7 +148,7 @@ class ReaderClassAttributesTest extends TestCase
     /**
      * @dataProvider getClassAttributeByAttributeNameNotExistingAttributeDataProvider
      */
-    public function testExceptionWhenNonExistingAttributeNameGiven(?string $class = null, string $attribute_name): void
+    public function testExceptionWhenNonExistingAttributeNameGiven(string $class = null, string $attribute_name): void
     {
         $this->expectException(AttributeNotFoundException::class);
         $reader = new Reader($class);
