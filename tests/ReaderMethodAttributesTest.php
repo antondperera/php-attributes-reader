@@ -65,22 +65,22 @@ class ReaderMethodAttributesTest extends TestCase
         $this->assertSame($expected, $actual);
     }
 
-    public static function getMethodAttributesByMethodNameWithNonExistingMethodNameDataProvider(): array
+    public static function getMethodAttributesWithNonExistingMethodNameDataProvider(): array
     {
         return [[DummyClass1WithMethodAttributes::class, 'nonexistingMethod']];
     }
 
     /**
-     * @dataProvider getMethodAttributesByMethodNameWithNonExistingMethodNameDataProvider
+     * @dataProvider getMethodAttributesWithNonExistingMethodNameDataProvider
      */
-    public function testGetMethodAttributesByMethodNameWithNonExistingMethodName(string $class, string $method_name): void
+    public function testgetMethodAttributesWithNonExistingMethodName(string $class, string $method_name): void
     {
         $reader = new Reader($class);
         $this->expectException(MethodNotFoundException::class);
-        $reader->getMethodAttributesByMethodName($method_name);
+        $reader->getMethodAttributes($method_name);
     }
 
-    public static function getMethodAttributesByMethodNameWithExistingMethodNameDataProvider(): array
+    public static function getMethodAttributesWithExistingMethodNameDataProvider(): array
     {
         return [
             [
@@ -106,12 +106,12 @@ class ReaderMethodAttributesTest extends TestCase
     }
 
     /**
-     * @dataProvider getMethodAttributesByMethodNameWithExistingMethodNameDataProvider
+     * @dataProvider getMethodAttributesWithExistingMethodNameDataProvider
      */
-    public function testGetMethodAttributesByMethodNameWithExistingMethodName(string $class, string $method_name, string $attribute_name, mixed $expected): void
+    public function testgetMethodAttributesWithExistingMethodName(string $class, string $method_name, string $attribute_name, mixed $expected): void
     {
         $reader = new Reader($class);
-        $actual = ($reader->getMethodAttributesByMethodName($method_name)[$attribute_name])->getName();
+        $actual = ($reader->getMethodAttributes($method_name)[$attribute_name])->getName();
         $this->assertSame($expected, $actual);
     }
 
