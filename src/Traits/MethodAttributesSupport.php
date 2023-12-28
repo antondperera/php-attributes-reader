@@ -40,7 +40,7 @@ trait MethodAttributesSupport
         return $this->method_attributes[$method_name];
     }
 
-    public function getMethodAttributeByAttributeName(string $method_name, string $attribute_name): null | Attribute | AttributeNotFoundException
+    public function getMethodAttribute(string $method_name, string $attribute_name): null | Attribute | AttributeNotFoundException
     {
         $method_attributes_list = $this->getMethodAttributesByMethodName($method_name);
         if (!array_key_exists($attribute_name, $method_attributes_list)) {

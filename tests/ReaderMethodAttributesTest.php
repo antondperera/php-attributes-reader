@@ -115,37 +115,37 @@ class ReaderMethodAttributesTest extends TestCase
         $this->assertSame($expected, $actual);
     }
 
-    public static function getMethodAttributeByAttributeNameWithNonExistingMethodNameDataProvider(): array
+    public static function getMethodAttributeWithNonExistingMethodNameDataProvider(): array
     {
         return [[DummyClass1WithMethodAttributes::class, 'nonexistingMethod', 'TestAttribute2']];
     }
 
     /**
-     * @dataProvider getMethodAttributeByAttributeNameWithNonExistingMethodNameDataProvider
+     * @dataProvider getMethodAttributeWithNonExistingMethodNameDataProvider
      */
     public function testGetMethodAttributeByMethodNameWithNonExistingMethodName(string $class, string $method_name, string $attribute_name): void
     {
         $reader = new Reader($class);
         $this->expectException(MethodNotFoundException::class);
-        $reader->getMethodAttributeByAttributeName($method_name, $attribute_name);
+        $reader->getMethodAttribute($method_name, $attribute_name);
     }
 
-    public static function getMethodAttributeByAttributeNameWithNonExistingAttributeNameDataProvider(): array
+    public static function getMethodAttributeWithNonExistingAttributeNameDataProvider(): array
     {
         return [[DummyClass1WithMethodAttributes::class, 'getDummyMethod2WithAttributes', 'TestAttribute11']];
     }
 
     /**
-     * @dataProvider getMethodAttributeByAttributeNameWithNonExistingAttributeNameDataProvider
+     * @dataProvider getMethodAttributeWithNonExistingAttributeNameDataProvider
      */
     public function testGetMethodAttributeByMethodNameWithNonExistingAttributeName(string $class, string $method_name, string $attribute_name): void
     {
         $reader = new Reader($class);
         $this->expectException(AttributeNotFoundException::class);
-        $reader->getMethodAttributeByAttributeName($method_name, $attribute_name);
+        $reader->getMethodAttribute($method_name, $attribute_name);
     }
 
-    public static function getMethodAttributeByAttributeNameWithExistingMethodNameDataProvider(): array
+    public static function getMethodAttributeWithExistingMethodNameDataProvider(): array
     {
         return [
             [
@@ -171,12 +171,12 @@ class ReaderMethodAttributesTest extends TestCase
     }
 
     /**
-     * @dataProvider getMethodAttributeByAttributeNameWithExistingMethodNameDataProvider
+     * @dataProvider getMethodAttributeWithExistingMethodNameDataProvider
      */
-    public function testGetMethodAttributeByAttributeNameWithExistingMethodName(string $class, string $method_name, string $attribute_name, mixed $expected): void
+    public function testgetMethodAttributeWithExistingMethodName(string $class, string $method_name, string $attribute_name, mixed $expected): void
     {
         $reader = new Reader($class);
-        $actual = ($reader->getMethodAttributeByAttributeName($method_name,$attribute_name))->getName();
+        $actual = ($reader->getMethodAttribute($method_name,$attribute_name))->getName();
         $this->assertSame($expected, $actual);
     }
 }
