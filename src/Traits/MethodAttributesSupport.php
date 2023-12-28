@@ -27,13 +27,12 @@ trait MethodAttributesSupport
         }
     }
 
-    public function getAllMethodAttributes(): array
+    public function getMethodAttributes(?string $method_name = null): null | array | MethodNotFoundException
     {
-        return $this->method_attributes;
-    }
+        if (is_null($method_name)) {
+            return $this->method_attributes;
+        }
 
-    public function getMethodAttributes(string $method_name): null | array | MethodNotFoundException
-    {
         if (!array_key_exists($method_name, $this->method_attributes)) {
             throw new MethodNotFoundException("Method {$method_name} not found in the Method Attributes list.");
         }

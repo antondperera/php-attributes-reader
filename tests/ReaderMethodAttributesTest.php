@@ -27,7 +27,7 @@ class ReaderMethodAttributesTest extends TestCase
     public function testGetAllMethodAttributesWithNoAttributes(string $class, mixed $expected): void
     {
         $reader = new Reader($class);
-        $attributes = $reader->getAllMethodAttributes();
+        $attributes = $reader->getMethodAttributes();
         $this->assertSame($expected, $attributes);
     }
 
@@ -61,7 +61,7 @@ class ReaderMethodAttributesTest extends TestCase
     public function testGetAllMethodAttributesWithAttributes(string $class, string $method_name, string $attribute_name, mixed $expected): void
     {
         $reader = new Reader($class);
-        $actual = ($reader->getAllMethodAttributes()[$method_name][$attribute_name])->getName();
+        $actual = ($reader->getMethodAttributes()[$method_name][$attribute_name])->getName();
         $this->assertSame($expected, $actual);
     }
 

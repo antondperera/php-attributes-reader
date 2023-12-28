@@ -32,7 +32,7 @@ class ReaderClassAttributesTest extends TestCase
     public function testExceptionWhenInvalidClassValueGiven(?string $class = null): void
     {
         $this->expectException(InvalidClassException::class);
-        $reader = new Reader($class);
+        new Reader($class);
     }
 
     public static function nonExistingClassProvider(): array
@@ -51,7 +51,7 @@ class ReaderClassAttributesTest extends TestCase
     public function testExceptionWhenNonExistingClassGiven(?string $class = null): void
     {
         $this->expectException(ClassNotFoundException::class);
-        $reader = new Reader($class);
+        new Reader($class);
     }
 
     public static function classWithoutAttributesProvider(): array
