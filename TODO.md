@@ -17,6 +17,7 @@
 - [x] Finalize Class Attributes reading functionality.
 - [x] [Issue #28](https://github.com/antondperera/php-attributes-reader/issues/28) Introduce necessary logic to prepare a list of Method Attributes and keep that in Reader class along with necessary tests.
 - [ ] Introduce getClassAttributeByAttributeName() function along with tests.
+- [ ] Refactor Reader class and introduce multiple traits to group similar functions in each trait than having it inside the Reader class.
 - [ ] Introduce necessary logic to prepare a list of Property Attributes and keep that in Reader class along with necessary tests.
 
 
