@@ -10,6 +10,7 @@ use AntonDPerera\PHPAttributesReader\Tests\Fixtures\MethodAttributes\DummyClass0
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\MethodAttributes\DummyClass1WithMethodAttributes;
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\MethodAttributes\DummyClass2WithMethodAttributes;
 use AntonDPerera\PHPAttributesReader\Exceptions\MethodNotFoundException;
+use AntonDPerera\PHPAttributesReader\Exceptions\AttributeNotFoundException;
 
 class ReaderMethodAttributesTest extends TestCase
 {
@@ -76,7 +77,7 @@ class ReaderMethodAttributesTest extends TestCase
     {
         $reader = new Reader($class);
         $this->expectException(MethodNotFoundException::class);
-        $actual = ($reader->getMethodAttributesByMethodName($method_name));
+        $reader->getMethodAttributesByMethodName($method_name);
     }
 
     public static function getMethodAttributesByMethodNameWithExistingMethodNameDataProvider(): array
@@ -114,32 +115,34 @@ class ReaderMethodAttributesTest extends TestCase
         $this->assertSame($expected, $actual);
     }
 
-    public static function getMethodAttributeByAttributeNameWithNonExistingMethodOrAttributeNameDataProvider(): array
+    public static function getMethodAttributeByAttributeNameWithNonExistingMethodNameDataProvider(): array
     {
-        return [
-            [
-                DummyClass1WithMethodAttributes::class,
-                'nonexistingMethod',
-                'TestAttribute2',
-                null
-            ],
-            [
-                DummyClass1WithMethodAttributes::class,
-                'getDummyMethod2WithAttributes',
-                'TestAttribute10',
-                null
-            ],
-        ];
+        return [[DummyClass1WithMethodAttributes::class, 'nonexistingMethod', 'TestAttribute2']];
     }
 
     /**
-     * @dataProvider getMethodAttributeByAttributeNameWithNonExistingMethodOrAttributeNameDataProvider
+     * @dataProvider getMethodAttributeByAttributeNameWithNonExistingMethodNameDataProvider
      */
-    public function testGetMethodAttributeByAttributeNameWithNonExistingMethodOrAttributeName(string $class, string $method_name, string $attribute_name, mixed $expected): void
+    public function testGetMethodAttributeByMethodNameWithNonExistingMethodName(string $class, string $method_name, string $attribute_name): void
     {
         $reader = new Reader($class);
-        $actual = ($reader->getMethodAttributeByAttributeName($method_name, $attribute_name));
-        $this->assertSame($expected, $actual);
+        $this->expectException(MethodNotFoundException::class);
+        $reader->getMethodAttributeByAttributeName($method_name, $attribute_name);
+    }
+
+    public static function getMethodAttributeByAttributeNameWithNonExistingAttributeNameDataProvider(): array
+    {
+        return [[DummyClass1WithMethodAttributes::class, 'getDummyMethod2WithAttributes', 'TestAttribute11']];
+    }
+
+    /**
+     * @dataProvider getMethodAttributeByAttributeNameWithNonExistingAttributeNameDataProvider
+     */
+    public function testGetMethodAttributeByMethodNameWithNonExistingAttributeName(string $class, string $method_name, string $attribute_name): void
+    {
+        $reader = new Reader($class);
+        $this->expectException(AttributeNotFoundException::class);
+        $reader->getMethodAttributeByAttributeName($method_name, $attribute_name);
     }
 
     public static function getMethodAttributeByAttributeNameWithExistingMethodNameDataProvider(): array
