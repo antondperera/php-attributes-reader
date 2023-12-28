@@ -8,6 +8,8 @@ use ReflectionClass;
 
 use AntonDPerera\PHPAttributesReader\Exceptions\InvalidClassException;
 use AntonDPerera\PHPAttributesReader\Exceptions\ClassNotFoundException;
+use AntonDPerera\PHPAttributesReader\Exceptions\MethodNotFoundException;
+use AntonDPerera\PHPAttributesReader\Exceptions\AttributeNotFoundException;
 
 class Reader
 {
@@ -68,10 +70,13 @@ class Reader
 
     public function getMethodAttributesByMethodName(string $method_name): ?array
     {
+        if (!array_key_exists($method_name, $this->method_attributes)) {
+            throw new MethodNotFoundException("Method {$method_name} not found in the Method Attributes list.");
+        }
         return $this->method_attributes[$method_name] ?? null;
     }
 
-    public function getMethodAttributeByAttributeName(string $method_name, string $attribute_name): Attribute
+    public function getMethodAttributeByAttributeName(string $method_name, string $attribute_name): ?Attribute
     {
         return $this->method_attributes[$method_name][$attribute_name] ?? null;
     }
