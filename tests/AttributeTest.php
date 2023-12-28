@@ -10,9 +10,9 @@ use PHPUnit\Framework\TestCase;
 
 use AntonDPerera\PHPAttributesReader\Attribute;
 use AntonDPerera\PHPAttributesReader\Argument;
-use AntonDPerera\PHPAttributesReader\Tests\Fixtures\DummySimpleClass1WithClassAttributes;
-use AntonDPerera\PHPAttributesReader\Tests\Fixtures\DummySimpleClass2WithClassAttributes;
-use AntonDPerera\PHPAttributesReader\Tests\Fixtures\DummySimpleClass3WithClassAttributesAndComplexArguments;
+use AntonDPerera\PHPAttributesReader\Tests\Fixtures\ClassAttributes\DummySimpleClass1WithClassAttributes;
+use AntonDPerera\PHPAttributesReader\Tests\Fixtures\ClassAttributes\DummySimpleClass2WithClassAttributes;
+use AntonDPerera\PHPAttributesReader\Tests\Fixtures\ClassAttributes\DummySimpleClass3WithClassAttributesAndComplexArguments;
 
 class AttributeTest extends TestCase
 {

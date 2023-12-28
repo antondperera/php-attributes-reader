@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 use AntonDPerera\PHPAttributesReader\Argument;
 
-use AntonDPerera\PHPAttributesReader\Tests\Fixtures\DummySimpleClass1WithClassAttributes;
+use AntonDPerera\PHPAttributesReader\Tests\Fixtures\ClassAttributes\DummySimpleClass1WithClassAttributes;
 
 class ArgumentTest extends TestCase
 {
