@@ -10,7 +10,7 @@ use AntonDPerera\PHPAttributesReader\Tests\Fixtures\MethodAttributes\DummyClass0
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\MethodAttributes\DummyClass1WithMethodAttributes;
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\MethodAttributes\DummyClass2WithMethodAttributes;
 use AntonDPerera\PHPAttributesReader\Exceptions\MethodNotFoundException;
-use AntonDPerera\PHPAttributesReader\Exceptions\AttributeNotFoundException;
+use AntonDPerera\PHPAttributesReader\Exceptions\MethodAttributeNotFoundException;
 
 class ReaderMethodAttributesTest extends TestCase
 {
@@ -141,7 +141,7 @@ class ReaderMethodAttributesTest extends TestCase
     public function testGetMethodAttributeByMethodNameWithNonExistingAttributeName(string $class, string $method_name, string $attribute_name): void
     {
         $reader = new Reader($class);
-        $this->expectException(AttributeNotFoundException::class);
+        $this->expectException(MethodAttributeNotFoundException::class);
         $reader->getMethodAttribute($method_name, $attribute_name);
     }
 

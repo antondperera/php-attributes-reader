@@ -7,7 +7,7 @@ namespace AntonDPerera\PHPAttributesReader\Traits;
 use ReflectionClass;
 
 use AntonDPerera\PHPAttributesReader\Exceptions\MethodNotFoundException;
-use AntonDPerera\PHPAttributesReader\Exceptions\AttributeNotFoundException;
+use AntonDPerera\PHPAttributesReader\Exceptions\MethodAttributeNotFoundException;
 use AntonDPerera\PHPAttributesReader\Attribute;
 
 trait MethodAttributesSupport
@@ -39,11 +39,11 @@ trait MethodAttributesSupport
         return $this->method_attributes[$method_name];
     }
 
-    public function getMethodAttribute(string $method_name, string $attribute_name): null | Attribute | AttributeNotFoundException
+    public function getMethodAttribute(string $method_name, string $attribute_name): null | Attribute | MethodAttributeNotFoundException
     {
         $method_attributes_list = $this->getMethodAttributes($method_name);
         if (!array_key_exists($attribute_name, $method_attributes_list)) {
-            throw new AttributeNotFoundException("Attribute {$attribute_name} not found in the Method Attributes list for method {$method_name}.");
+            throw new MethodAttributeNotFoundException("Attribute {$attribute_name} not found in the Method Attributes list for method {$method_name}.");
         }
         return $method_attributes_list[$attribute_name];
     }
