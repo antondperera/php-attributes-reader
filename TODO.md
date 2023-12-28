@@ -15,9 +15,10 @@
 - [x] Introduce Class Attributes processing and storing in Reader.
 - [x] Introduce necessary functions and tests to read Class Attributes.
 - [x] Finalize Class Attributes reading functionality.
-- [ ] Introduce necessary logic to prepare a list of Method Attributes and keep that in Reader class along with necessary tests.
+- [x] [Issue #28](https://github.com/antondperera/php-attributes-reader/issues/28) Introduce necessary logic to prepare a list of Method Attributes and keep that in Reader class along with necessary tests.
 - [ ] Introduce getClassAttributeByAttributeName() function along with tests.
 - [ ] Introduce necessary logic to prepare a list of Property Attributes and keep that in Reader class along with necessary tests.
 
 
 - [ ] Introduce necessary logic to determine class constants and regular constants along with necessary tests.
+- [ ] Refactor @dataProvider dockblock annotations in tests to [#DataProvider] attribute in unit tests (least priority).
