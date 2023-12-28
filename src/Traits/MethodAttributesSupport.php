@@ -27,22 +27,21 @@ trait MethodAttributesSupport
         }
     }
 
-    public function getAllMethodAttributes(): array
+    public function getMethodAttributes(?string $method_name = null): null | array | MethodNotFoundException
     {
-        return $this->method_attributes;
-    }
+        if (is_null($method_name)) {
+            return $this->method_attributes;
+        }
 
-    public function getMethodAttributesByMethodName(string $method_name): null | array | MethodNotFoundException
-    {
         if (!array_key_exists($method_name, $this->method_attributes)) {
             throw new MethodNotFoundException("Method {$method_name} not found in the Method Attributes list.");
         }
         return $this->method_attributes[$method_name];
     }
 
-    public function getMethodAttributeByAttributeName(string $method_name, string $attribute_name): null | Attribute | AttributeNotFoundException
+    public function getMethodAttribute(string $method_name, string $attribute_name): null | Attribute | AttributeNotFoundException
     {
-        $method_attributes_list = $this->getMethodAttributesByMethodName($method_name);
+        $method_attributes_list = $this->getMethodAttributes($method_name);
         if (!array_key_exists($attribute_name, $method_attributes_list)) {
             throw new AttributeNotFoundException("Attribute {$attribute_name} not found in the Method Attributes list for method {$method_name}.");
         }
