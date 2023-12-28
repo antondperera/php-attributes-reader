@@ -6,6 +6,6 @@ namespace AntonDPerera\PHPAttributesReader\Exceptions;
 
 use \Exception;
 
-class AttributeNotFoundException extends Exception
+class ClassAttributeNotFoundException extends Exception
 {
 }

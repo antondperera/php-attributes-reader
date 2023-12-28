@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 use AntonDPerera\PHPAttributesReader\Reader;
 use AntonDPerera\PHPAttributesReader\Exceptions\InvalidClassException;
 use AntonDPerera\PHPAttributesReader\Exceptions\ClassNotFoundException;
-use AntonDPerera\PHPAttributesReader\Exceptions\AttributeNotFoundException;
+use AntonDPerera\PHPAttributesReader\Exceptions\ClassAttributeNotFoundException;
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\ClassAttributes\DummySimpleClass0WithoutClassAttributes;
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\ClassAttributes\DummySimpleClass1WithClassAttributes;
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\ClassAttributes\DummySimpleClass2WithClassAttributes;
@@ -150,7 +150,7 @@ class ReaderClassAttributesTest extends TestCase
      */
     public function testExceptionWhenNonExistingAttributeNameGiven(string $class = null, string $attribute_name): void
     {
-        $this->expectException(AttributeNotFoundException::class);
+        $this->expectException(ClassAttributeNotFoundException::class);
         $reader = new Reader($class);
         $reader->getClassAttribute($attribute_name);
     }

@@ -6,7 +6,7 @@ namespace AntonDPerera\PHPAttributesReader\Traits;
 
 use ReflectionClass;
 
-use AntonDPerera\PHPAttributesReader\Exceptions\AttributeNotFoundException;
+use AntonDPerera\PHPAttributesReader\Exceptions\ClassAttributeNotFoundException;
 use AntonDPerera\PHPAttributesReader\Attribute;
 
 trait ClassAttributesSupport
@@ -34,10 +34,10 @@ trait ClassAttributesSupport
         return !empty($this->class_attributes);
     }
 
-    public function getClassAttribute(string $attribute_name): null | Attribute | AttributeNotFoundException
+    public function getClassAttribute(string $attribute_name): null | Attribute | ClassAttributeNotFoundException
     {
         if (!array_key_exists($attribute_name, $this->class_attributes)) {
-            throw new AttributeNotFoundException("Attribute {$attribute_name} not found in the Class Attributes list.");
+            throw new ClassAttributeNotFoundException("Attribute {$attribute_name} not found in the Class Attributes list.");
         }
         return $this->class_attributes[$attribute_name];
     }
