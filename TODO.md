@@ -16,6 +16,7 @@
 - [x] Introduce necessary functions and tests to read Class Attributes.
 - [x] Finalize Class Attributes reading functionality.
 - [ ] Introduce necessary logic to prepare a list of Method Attributes and keep that in Reader class along with necessary tests.
+- [ ] Introduce getClassAttributeByAttributeName() function along with tests.
 - [ ] Introduce necessary logic to prepare a list of Property Attributes and keep that in Reader class along with necessary tests.
 
 
