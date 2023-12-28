@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase;
 use AntonDPerera\PHPAttributesReader\Reader;
 use AntonDPerera\PHPAttributesReader\Exceptions\InvalidClassException;
 use AntonDPerera\PHPAttributesReader\Exceptions\ClassNotFoundException;
+use AntonDPerera\PHPAttributesReader\Exceptions\AttributeNotFoundException;
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\ClassAttributes\DummySimpleClass0WithoutClassAttributes;
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\ClassAttributes\DummySimpleClass1WithClassAttributes;
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\ClassAttributes\DummySimpleClass2WithClassAttributes;
@@ -135,5 +136,64 @@ class ReaderClassAttributesTest extends TestCase
         $attribute = $reader->getClassAttributes()[$attribute_name];
         $argument = $attribute->getArguments()[$argument_index];
         $this->assertEquals($expected, $argument->getValue());
+    }
+
+    public static function getClassAttributeByAttributeNameNotExistingAttributeDataProvider(): array
+    {
+        return [
+            [DummySimpleClass1WithClassAttributes::class, 'TestAttribute1'],
+        ];
+    }
+
+    /**
+     * @dataProvider getClassAttributeByAttributeNameNotExistingAttributeDataProvider
+     */
+    public function testExceptionWhenNonExistingAttributeNameGiven(?string $class = null, string $attribute_name): void
+    {
+        $this->expectException(AttributeNotFoundException::class);
+        $reader = new Reader($class);
+        $reader->getClassAttribute($attribute_name);
+    }
+
+    public static function getClassAttributeByAttributeNameWithExistingAttributeNameDataProvider(): array
+    {
+        return [
+            [
+
+                DummySimpleClass1WithClassAttributes::class,
+                'TestAttribute',
+                'TestAttribute',
+            ],
+            [
+                DummySimpleClass2WithClassAttributes::class,
+                'TestAttribute3',
+                'TestAttribute3'
+            ],
+            [
+                DummySimpleClass2WithClassAttributes::class,
+                'TestAttribute7',
+                'TestAttribute7'
+            ],
+            [
+                DummySimpleClass3WithClassAttributesAndComplexArguments::class,
+                'TestAttribute10',
+                'TestAttribute10'
+            ],
+            [
+                DummySimpleClass3WithClassAttributesAndComplexArguments::class,
+                'TestAttribute15',
+                'TestAttribute15'
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider getClassAttributeByAttributeNameWithExistingAttributeNameDataProvider
+     */
+    public function testGetClassAttributeByAttributeName(string $class, string $attribute_name, mixed $expected): void
+    {
+        $reader = new Reader($class);
+        $actual = ($reader->getClassAttribute($attribute_name))->getName();
+        $this->assertSame($expected, $actual);
     }
 }

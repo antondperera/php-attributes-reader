@@ -51,6 +51,14 @@ class Reader
         return !empty($this->class_attributes);
     }
 
+    public function getClassAttribute(string $attribute_name): ?Attribute
+    {
+        if (!array_key_exists($attribute_name, $this->class_attributes)) {
+            throw new AttributeNotFoundException("Attribute {$attribute_name} not found in the Class Attributes list.");
+        }
+        return $this->class_attributes[$attribute_name];
+    }
+
     public function processMethodAttributes(): void
     {
         $reflection = new ReflectionClass($this->class);
