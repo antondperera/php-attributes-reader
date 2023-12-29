@@ -14,7 +14,7 @@ trait MethodAttributesSupport
 {
     private array $method_attributes = [];
 
-    public function processMethodAttributes(): void
+    private function processMethodAttributes(): void
     {
         $reflection = new ReflectionClass($this->class);
         $reflection_methods = $reflection->getMethods();
@@ -33,15 +33,25 @@ trait MethodAttributesSupport
             return $this->method_attributes;
         }
 
+        if ($this->isMethodExistsInMethodAttributesList($method_name)) {
+            return $this->method_attributes[$method_name];
+        }
+    }
+
+    private function isMethodExistsInMethodAttributesList(string $method_name): bool | MethodNotFoundException
+    {
         if (!array_key_exists($method_name, $this->method_attributes)) {
             throw new MethodNotFoundException("Method {$method_name} not found in the Method Attributes list.");
         }
-        return $this->method_attributes[$method_name];
+        return true;
     }
 
     public function getMethodAttribute(string $method_name, string $attribute_name): null | Attribute | MethodAttributeNotFoundException
     {
-        $method_attributes_list = $this->getMethodAttributes($method_name);
+        if ($this->isMethodExistsInMethodAttributesList($method_name)) {
+            $method_attributes_list = $this->getMethodAttributes($method_name);
+        }
+
         if (!array_key_exists($attribute_name, $method_attributes_list)) {
             throw new MethodAttributeNotFoundException("Attribute {$attribute_name} not found in the Method Attributes list for method {$method_name}.");
         }

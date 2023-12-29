@@ -17,10 +17,10 @@
 - [x] Finalize Class Attributes reading functionality.
 - [x] [Issue #28](https://github.com/antondperera/php-attributes-reader/issues/28) Introduce necessary logic to prepare a list of Method Attributes and keep that in Reader class along with necessary tests.
 - [x] [Issue #31](https://github.com/antondperera/php-attributes-reader/issues/31) Introduce getClassAttributeByAttributeName() function into Reader along with tests.
-- [ ] [Issue #33](https://github.com/antondperera/php-attributes-reader/issues/33) Refactor Reader class and introduce multiple traits to group similar functions in each trait than having it inside the Reader class.
-- [ ] [Issue #34](https://github.com/antondperera/php-attributes-reader/issues/34) Refactor get method attributes related functions to simplify things with the public API(public functions) and handle things internally.
-- [ ] [Issue #35](https://github.com/antondperera/php-attributes-reader/issues/35) Introduce separate AttributeNotFound exceptions for Class, Method separately.
-- [ ] [Issue #29](https://github.com/antondperera/php-attributes-reader/issues/29) Introduce necessary logic to prepare a list of Property Attributes and keep that in Reader class along with necessary tests.
+- [x] [Issue #33](https://github.com/antondperera/php-attributes-reader/issues/33) Refactor Reader class and introduce multiple traits to group similar functions in each trait than having it inside the Reader class.
+- [x] [Issue #34](https://github.com/antondperera/php-attributes-reader/issues/34) Refactor get method attributes related functions to simplify things with the public API(public functions) and handle things internally.
+- [x] [Issue #35](https://github.com/antondperera/php-attributes-reader/issues/35) Introduce separate AttributeNotFound exceptions for Class, Method separately.
+- [x] [Issue #29](https://github.com/antondperera/php-attributes-reader/issues/29) Introduce necessary logic to prepare a list of Property Attributes and keep that in Reader class along with necessary tests.
 
 
 - [ ] Introduce necessary logic to determine class constants and regular constants along with necessary tests.

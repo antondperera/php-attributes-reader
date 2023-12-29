@@ -14,7 +14,7 @@ trait ClassAttributesSupport
     private string $class = "";
     private array $class_attributes = [];
 
-    public function processClassAttributes(): void
+    private function processClassAttributes(): void
     {
         $reflection = new ReflectionClass($this->class);
         $class_attributes = $reflection->getAttributes();
