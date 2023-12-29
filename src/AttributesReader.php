@@ -10,7 +10,7 @@ use AntonDPerera\PHPAttributesReader\Traits\ClassAttributesSupport;
 use AntonDPerera\PHPAttributesReader\Traits\MethodAttributesSupport;
 use AntonDPerera\PHPAttributesReader\Traits\PropertyAttributesSupport;
 
-class Reader
+class AttributesReader
 {
     use ClassAttributesSupport;
     use MethodAttributesSupport;
