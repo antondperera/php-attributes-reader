@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace AntonDPerera\PHPAttributesReader\Tests;
 
 use PHPUnit\Framework\TestCase;
-use AntonDPerera\PHPAttributesReader\Reader;
+use AntonDPerera\PHPAttributesReader\AttributesReader;
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\MethodAttributes\DummyClass0WithoutMethodAttributes;
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\MethodAttributes\DummyClass1WithMethodAttributes;
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\MethodAttributes\DummyClass2WithMethodAttributes;
@@ -26,7 +26,7 @@ class ReaderMethodAttributesTest extends TestCase
      */
     public function testGetAllMethodAttributesWithNoAttributes(string $class, mixed $expected): void
     {
-        $reader = new Reader($class);
+        $reader = new AttributesReader($class);
         $attributes = $reader->getMethodAttributes();
         $this->assertSame($expected, $attributes);
     }
@@ -60,7 +60,7 @@ class ReaderMethodAttributesTest extends TestCase
      */
     public function testGetAllMethodAttributesWithAttributes(string $class, string $method_name, string $attribute_name, mixed $expected): void
     {
-        $reader = new Reader($class);
+        $reader = new AttributesReader($class);
         $actual = ($reader->getMethodAttributes()[$method_name][$attribute_name])->getName();
         $this->assertSame($expected, $actual);
     }
@@ -75,7 +75,7 @@ class ReaderMethodAttributesTest extends TestCase
      */
     public function testgetMethodAttributesWithNonExistingMethodName(string $class, string $method_name): void
     {
-        $reader = new Reader($class);
+        $reader = new AttributesReader($class);
         $this->expectException(MethodNotFoundException::class);
         $reader->getMethodAttributes($method_name);
     }
@@ -110,7 +110,7 @@ class ReaderMethodAttributesTest extends TestCase
      */
     public function testgetMethodAttributesWithExistingMethodName(string $class, string $method_name, string $attribute_name, mixed $expected): void
     {
-        $reader = new Reader($class);
+        $reader = new AttributesReader($class);
         $actual = ($reader->getMethodAttributes($method_name)[$attribute_name])->getName();
         $this->assertSame($expected, $actual);
     }
@@ -125,7 +125,7 @@ class ReaderMethodAttributesTest extends TestCase
      */
     public function testGetMethodAttributeByMethodNameWithNonExistingMethodName(string $class, string $method_name, string $attribute_name): void
     {
-        $reader = new Reader($class);
+        $reader = new AttributesReader($class);
         $this->expectException(MethodNotFoundException::class);
         $reader->getMethodAttribute($method_name, $attribute_name);
     }
@@ -140,7 +140,7 @@ class ReaderMethodAttributesTest extends TestCase
      */
     public function testGetMethodAttributeByMethodNameWithNonExistingAttributeName(string $class, string $method_name, string $attribute_name): void
     {
-        $reader = new Reader($class);
+        $reader = new AttributesReader($class);
         $this->expectException(MethodAttributeNotFoundException::class);
         $reader->getMethodAttribute($method_name, $attribute_name);
     }
@@ -175,7 +175,7 @@ class ReaderMethodAttributesTest extends TestCase
      */
     public function testgetMethodAttributeWithExistingMethodName(string $class, string $method_name, string $attribute_name, mixed $expected): void
     {
-        $reader = new Reader($class);
+        $reader = new AttributesReader($class);
         $actual = ($reader->getMethodAttribute($method_name,$attribute_name))->getName();
         $this->assertSame($expected, $actual);
     }

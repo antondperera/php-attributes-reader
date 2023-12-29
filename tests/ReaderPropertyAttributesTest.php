@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace AntonDPerera\PHPAttributesReader\Tests;
 
 use PHPUnit\Framework\TestCase;
-use AntonDPerera\PHPAttributesReader\Reader;
+use AntonDPerera\PHPAttributesReader\AttributesReader;
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\PropertyAttributes\DummyClass0WithoutPropertyAttributes;
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\PropertyAttributes\DummyClass1WithPropertyAttributes;
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\PropertyAttributes\DummyClass2WithPropertyAttributes;
@@ -26,7 +26,7 @@ class ReaderPropertyAttributesTest extends TestCase
      */
     public function testGetAllPropertyAttributesWithNoAttributes(string $class, mixed $expected): void
     {
-        $reader = new Reader($class);
+        $reader = new AttributesReader($class);
         $attributes = $reader->getPropertyAttributes();
         $this->assertSame($expected, $attributes);
     }
@@ -60,7 +60,7 @@ class ReaderPropertyAttributesTest extends TestCase
      */
     public function testGetAllPropertyAttributesWithAttributes(string $class, string $property_name, string $attribute_name, mixed $expected): void
     {
-        $reader = new Reader($class);
+        $reader = new AttributesReader($class);
         $actual = ($reader->getPropertyAttributes()[$property_name][$attribute_name])->getName();
         $this->assertSame($expected, $actual);
     }
@@ -75,7 +75,7 @@ class ReaderPropertyAttributesTest extends TestCase
      */
     public function testgetPropertyAttributesWithNonExistingPropertyName(string $class, string $property_name): void
     {
-        $reader = new Reader($class);
+        $reader = new AttributesReader($class);
         $this->expectException(PropertyNotFoundException::class);
         $reader->getPropertyAttributes($property_name);
     }
@@ -110,7 +110,7 @@ class ReaderPropertyAttributesTest extends TestCase
      */
     public function testgetPropertyAttributesWithExistingPropertyName(string $class, string $property_name, string $attribute_name, mixed $expected): void
     {
-        $reader = new Reader($class);
+        $reader = new AttributesReader($class);
         $actual = ($reader->getPropertyAttributes($property_name)[$attribute_name])->getName();
         $this->assertSame($expected, $actual);
     }
@@ -125,7 +125,7 @@ class ReaderPropertyAttributesTest extends TestCase
      */
     public function testGetPropertyAttributeByPropertyNameWithNonExistingPropertyName(string $class, string $property_name, string $attribute_name): void
     {
-        $reader = new Reader($class);
+        $reader = new AttributesReader($class);
         $this->expectException(PropertyNotFoundException::class);
         $reader->getPropertyAttribute($property_name, $attribute_name);
     }
@@ -140,7 +140,7 @@ class ReaderPropertyAttributesTest extends TestCase
      */
     public function testGetPropertyAttributeByPropertyNameWithNonExistingAttributeName(string $class, string $property_name, string $attribute_name): void
     {
-        $reader = new Reader($class);
+        $reader = new AttributesReader($class);
         $this->expectException(PropertyAttributeNotFoundException::class);
         $reader->getPropertyAttribute($property_name, $attribute_name);
     }
@@ -175,7 +175,7 @@ class ReaderPropertyAttributesTest extends TestCase
      */
     public function testgetPropertyAttributeWithExistingPropertyName(string $class, string $property_name, string $attribute_name, mixed $expected): void
     {
-        $reader = new Reader($class);
+        $reader = new AttributesReader($class);
         $actual = ($reader->getPropertyAttribute($property_name,$attribute_name))->getName();
         $this->assertSame($expected, $actual);
     }
