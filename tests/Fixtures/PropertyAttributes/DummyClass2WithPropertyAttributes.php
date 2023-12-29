@@ -7,5 +7,5 @@ namespace AntonDPerera\PHPAttributesReader\Tests\Fixtures\PropertyAttributes;
 class DummyClass2WithPropertyAttributes
 {
     #[TestAttribute3('dummyValue')]
-    public $property3_without_attributes = null;
+    public $property3_with_attributes = null;
 }

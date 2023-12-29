@@ -36,19 +36,19 @@ class ReaderPropertyAttributesTest extends TestCase
         return [
             [
                 DummyClass1WithPropertyAttributes::class,
-                'property2_without_attributes',
+                'property2_with_attributes',
                 'TestAttribute',
                 'TestAttribute'
             ],
             [
                 DummyClass1WithPropertyAttributes::class,
-                'property2_without_attributes',
+                'property2_with_attributes',
                 'TestAttribute2',
                 'TestAttribute2'
             ],
             [
                 DummyClass2WithPropertyAttributes::class,
-                'property3_without_attributes',
+                'property3_with_attributes',
                 'TestAttribute3',
                 'TestAttribute3'
             ],
@@ -86,19 +86,19 @@ class ReaderPropertyAttributesTest extends TestCase
             [
 
                 DummyClass1WithPropertyAttributes::class,
-                'property2_without_attributes',
+                'property2_with_attributes',
                 'TestAttribute',
                 'TestAttribute',
             ],
             [
                 DummyClass1WithPropertyAttributes::class,
-                'property2_without_attributes',
+                'property2_with_attributes',
                 'TestAttribute2',
                 'TestAttribute2'
             ],
             [
                 DummyClass2WithPropertyAttributes::class,
-                'property3_without_attributes',
+                'property3_with_attributes',
                 'TestAttribute3',
                 'TestAttribute3'
             ],
@@ -132,7 +132,7 @@ class ReaderPropertyAttributesTest extends TestCase
 
     public static function getPropertyAttributeWithNonExistingAttributeNameDataProvider(): array
     {
-        return [[DummyClass1WithPropertyAttributes::class, 'property2_without_attributes', 'TestAttribute11']];
+        return [[DummyClass1WithPropertyAttributes::class, 'property2_with_attributes', 'TestAttribute11']];
     }
 
     /**
@@ -151,19 +151,19 @@ class ReaderPropertyAttributesTest extends TestCase
             [
 
                 DummyClass1WithPropertyAttributes::class,
-                'property2_without_attributes',
+                'property2_with_attributes',
                 'TestAttribute',
                 'TestAttribute',
             ],
             [
                 DummyClass1WithPropertyAttributes::class,
-                'property2_without_attributes',
+                'property2_with_attributes',
                 'TestAttribute2',
                 'TestAttribute2'
             ],
             [
                 DummyClass2WithPropertyAttributes::class,
-                'property3_without_attributes',
+                'property3_with_attributes',
                 'TestAttribute3',
                 'TestAttribute3'
             ],
