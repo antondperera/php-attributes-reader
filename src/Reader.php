@@ -8,11 +8,13 @@ use AntonDPerera\PHPAttributesReader\Exceptions\InvalidClassException;
 use AntonDPerera\PHPAttributesReader\Exceptions\ClassNotFoundException;
 use AntonDPerera\PHPAttributesReader\Traits\ClassAttributesSupport;
 use AntonDPerera\PHPAttributesReader\Traits\MethodAttributesSupport;
+use AntonDPerera\PHPAttributesReader\Traits\PropertyAttributesSupport;
 
 class Reader
 {
     use ClassAttributesSupport;
     use MethodAttributesSupport;
+    use PropertyAttributesSupport;
 
     private array $method_attributes = [];
 
@@ -28,5 +30,6 @@ class Reader
         $this->class = $class;
         $this->processClassAttributes();
         $this->processMethodAttributes();
+        $this->processPropertyAttributes();
     }
 }
