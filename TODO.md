@@ -1,5 +1,6 @@
-## To-Do List
+# To-Do List
 
+### Tasks for v0.1.0
 - [x] Library initialization with minimal docker setup
 - [x] Updating composer.json file with propper details
 - [x] Adding a To-Do list
@@ -21,7 +22,9 @@
 - [x] [Issue #34](https://github.com/antondperera/php-attributes-reader/issues/34) Refactor get method attributes related functions to simplify things with the public API(public functions) and handle things internally.
 - [x] [Issue #35](https://github.com/antondperera/php-attributes-reader/issues/35) Introduce separate AttributeNotFound exceptions for Class, Method separately.
 - [x] [Issue #29](https://github.com/antondperera/php-attributes-reader/issues/29) Introduce necessary logic to prepare a list of Property Attributes and keep that in Reader class along with necessary tests.
+- [x] [Issue #42](https://github.com/antondperera/php-attributes-reader/issues/42) dataProvider docblock annotation replaced with DataProvider attribute in tests.
 
 
-- [ ] Introduce necessary logic to determine class constants and regular constants along with necessary tests.
-- [ ] Refactor @dataProvider dockblock annotations in tests to [#DataProvider] attribute in unit tests (least priority).
+### Tasks After v0.1.0
+- [ ] [Issue #43](https://github.com/antondperera/php-attributes-reader/issues/43) Add functionality to get Attribute instance.
+- [ ] [Issue #21](https://github.com/antondperera/php-attributes-reader/issues/21) Introduce necessary logic to determine class constants and regular constants along with necessary tests.

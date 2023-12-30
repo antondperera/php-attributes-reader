@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace AntonDPerera\PHPAttributesReader\Tests;
 
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use AntonDPerera\PHPAttributesReader\AttributesReader;
 use AntonDPerera\PHPAttributesReader\Exceptions\InvalidClassException;
 use AntonDPerera\PHPAttributesReader\Exceptions\ClassNotFoundException;
@@ -26,9 +28,7 @@ class ReaderClassAttributesTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider invalidClassValueProvider
-     */
+    #[DataProvider('invalidClassValueProvider')]
     public function testExceptionWhenInvalidClassValueGiven(?string $class = null): void
     {
         $this->expectException(InvalidClassException::class);
@@ -45,9 +45,7 @@ class ReaderClassAttributesTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider nonExistingClassProvider
-     */
+    #[DataProvider('nonExistingClassProvider')]
     public function testExceptionWhenNonExistingClassGiven(?string $class = null): void
     {
         $this->expectException(ClassNotFoundException::class);
@@ -61,9 +59,7 @@ class ReaderClassAttributesTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider classWithoutAttributesProvider
-     */
+    #[DataProvider('classWithoutAttributesProvider')]
     public function testGetClassAttributesWithNoAttributesClass(string $class, mixed $expected): void
     {
         $reader = new AttributesReader($class);
@@ -81,9 +77,7 @@ class ReaderClassAttributesTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider classProviderForHasAttributes
-     */
+    #[DataProvider('classProviderForHasAttributes')]
     public function testHasClassAttributes(string $class, mixed $expected): void
     {
         $reader = new AttributesReader($class);
@@ -101,9 +95,7 @@ class ReaderClassAttributesTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider classAttributesWithoutArgumentsProvider
-     */
+    #[DataProvider('classAttributesWithoutArgumentsProvider')]
     public function testGetClassAttributesWithoutArguments(string $class, string $attribute_name, mixed $expected): void
     {
         $reader = new AttributesReader($class);
@@ -127,9 +119,7 @@ class ReaderClassAttributesTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider classAttributesWithArgumentsProvider
-     */
+    #[DataProvider('classAttributesWithArgumentsProvider')]
     public function testGetClassAttributesWithArguments(string $class, string $attribute_name, int $argument_index, mixed $expected): void
     {
         $reader = new AttributesReader($class);
@@ -145,9 +135,7 @@ class ReaderClassAttributesTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider getClassAttributeByAttributeNameNotExistingAttributeDataProvider
-     */
+    #[DataProvider('getClassAttributeByAttributeNameNotExistingAttributeDataProvider')]
     public function testExceptionWhenNonExistingAttributeNameGiven(string $class = null, string $attribute_name): void
     {
         $this->expectException(ClassAttributeNotFoundException::class);
@@ -187,9 +175,7 @@ class ReaderClassAttributesTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider getClassAttributeByAttributeNameWithExistingAttributeNameDataProvider
-     */
+    #[DataProvider('getClassAttributeByAttributeNameWithExistingAttributeNameDataProvider')]
     public function testGetClassAttributeByAttributeName(string $class, string $attribute_name, mixed $expected): void
     {
         $reader = new AttributesReader($class);

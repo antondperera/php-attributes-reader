@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace AntonDPerera\PHPAttributesReader\Tests;
 
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use AntonDPerera\PHPAttributesReader\Argument;
-
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\ClassAttributes\DummySimpleClass1WithClassAttributes;
 
 class ArgumentTest extends TestCase
@@ -23,9 +23,7 @@ class ArgumentTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider emptyArgumentsProvider
-     */
+    #[DataProvider('emptyArgumentsProvider')]
     public function testWhenArgumentValueIsEmpty(mixed $argument, int $expected): void
     {
         $argument = new Argument($argument);
@@ -40,9 +38,7 @@ class ArgumentTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider booleanArgumentsProvider
-     */
+    #[DataProvider('booleanArgumentsProvider')]
     public function testWhenArgumentValueIsBoolean(mixed $argument, int $expected): void
     {
         $argument = new Argument($argument);
@@ -71,9 +67,7 @@ class ArgumentTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider sequentialArrayArgumentsProvider
-     */
+    #[DataProvider('sequentialArrayArgumentsProvider')]
     public function testWhenArgumentValueIsSequentialArray(mixed $argument, int $expected): void
     {
         $argument = new Argument($argument);
@@ -122,9 +116,7 @@ class ArgumentTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider associativeArrayArgumentsProvider
-     */
+    #[DataProvider('associativeArrayArgumentsProvider')]
     public function testWhenArgumentValueIsAssociativeArray(mixed $argument, int $expected): void
     {
         $argument = new Argument($argument);
@@ -166,9 +158,7 @@ class ArgumentTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider objectArgumentsProvider
-     */
+    #[DataProvider('objectArgumentsProvider')]
     public function testWhenArgumentValueIsObject(mixed $argument, int $expected): void
     {
         $argument = new Argument($argument);
@@ -190,9 +180,7 @@ class ArgumentTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider SimpleValueTypesArgumentsProvider
-     */
+    #[DataProvider('SimpleValueTypesArgumentsProvider')]
     public function testWhenArgumentValueIsASimpleDataType(mixed $argument, int $expected): void
     {
         $argument = new Argument($argument);
