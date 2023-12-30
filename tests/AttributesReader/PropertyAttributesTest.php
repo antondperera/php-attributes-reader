@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace AntonDPerera\PHPAttributesReader\Tests;
+namespace AntonDPerera\PHPAttributesReader\Tests\AttributesReader;
 
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -14,7 +14,7 @@ use AntonDPerera\PHPAttributesReader\Tests\Fixtures\PropertyAttributes\DummyClas
 use AntonDPerera\PHPAttributesReader\Exceptions\PropertyNotFoundException;
 use AntonDPerera\PHPAttributesReader\Exceptions\PropertyAttributeNotFoundException;
 
-class ReaderPropertyAttributesTest extends TestCase
+class PropertyAttributesTest extends TestCase
 {
     public static function classesWithoutPropertyAttributesProvider(): array
     {

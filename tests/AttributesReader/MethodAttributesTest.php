@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace AntonDPerera\PHPAttributesReader\Tests;
+namespace AntonDPerera\PHPAttributesReader\Tests\AttributesReader;
 
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -14,7 +14,7 @@ use AntonDPerera\PHPAttributesReader\Tests\Fixtures\MethodAttributes\DummyClass2
 use AntonDPerera\PHPAttributesReader\Exceptions\MethodNotFoundException;
 use AntonDPerera\PHPAttributesReader\Exceptions\MethodAttributeNotFoundException;
 
-class ReaderMethodAttributesTest extends TestCase
+class MethodAttributesTest extends TestCase
 {
     public static function classesWithoutMethodAttributesProvider(): array
     {

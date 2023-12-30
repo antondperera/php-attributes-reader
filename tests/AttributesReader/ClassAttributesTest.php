@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace AntonDPerera\PHPAttributesReader\Tests;
+namespace AntonDPerera\PHPAttributesReader\Tests\AttributesReader;
 
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -16,7 +16,7 @@ use AntonDPerera\PHPAttributesReader\Tests\Fixtures\ClassAttributes\DummySimpleC
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\ClassAttributes\DummySimpleClass2WithClassAttributes;
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\ClassAttributes\DummySimpleClass3WithClassAttributesAndComplexArguments;
 
-class ReaderClassAttributesTest extends TestCase
+class ClassAttributesTest extends TestCase
 {
     public static function invalidClassValueProvider(): array
     {
