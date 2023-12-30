@@ -7,6 +7,7 @@ namespace AntonDPerera\PHPAttributesReader\Tests;
 use TypeError;
 use ReflectionClass;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use AntonDPerera\PHPAttributesReader\Attribute;
 use AntonDPerera\PHPAttributesReader\Argument;
@@ -26,9 +27,7 @@ class AttributeTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider invalidReflectionAttributeProvider
-     */
+    #[DataProvider('invalidReflectionAttributeProvider')]
     public function testExceptionWhenInvalidReflectionAttributeGiven(?string $class = null): void
     {
         $this->expectException(TypeError::class);
@@ -43,9 +42,7 @@ class AttributeTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider dummyClassesAndExpectedValueProviderForGetName
-     */
+    #[DataProvider('dummyClassesAndExpectedValueProviderForGetName')]
     public function testGetName(string $class, string $expected): void
     {
         $reflection = new ReflectionClass($class);
@@ -65,9 +62,7 @@ class AttributeTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider dummyClassesAndExpectedValueProviderForHasArguments
-     */
+    #[DataProvider('dummyClassesAndExpectedValueProviderForHasArguments')]
     public function testHasArguments(string $class, int $attribute_index, bool $expected): void
     {
         $reflection = new ReflectionClass($class);
@@ -143,9 +138,7 @@ class AttributeTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider dummyClassesAndExpectedValueProviderForGetArguments
-     */
+    #[DataProvider('dummyClassesAndExpectedValueProviderForGetArguments')]
     public function testGetArguments(string $class, int $attribute_index, array $expected): void
     {
         $reflection = new ReflectionClass($class);

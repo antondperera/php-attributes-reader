@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace AntonDPerera\PHPAttributesReader\Tests;
 
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use AntonDPerera\PHPAttributesReader\AttributesReader;
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\MethodAttributes\DummyClass0WithoutMethodAttributes;
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\MethodAttributes\DummyClass1WithMethodAttributes;
@@ -21,9 +23,7 @@ class ReaderMethodAttributesTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider classesWithoutMethodAttributesProvider
-     */
+    #[DataProvider('classesWithoutMethodAttributesProvider')]
     public function testGetAllMethodAttributesWithNoAttributes(string $class, mixed $expected): void
     {
         $reader = new AttributesReader($class);
@@ -55,9 +55,7 @@ class ReaderMethodAttributesTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider classesWithMethodAttributesProvider
-     */
+    #[DataProvider('classesWithMethodAttributesProvider')]
     public function testGetAllMethodAttributesWithAttributes(string $class, string $method_name, string $attribute_name, mixed $expected): void
     {
         $reader = new AttributesReader($class);
@@ -70,9 +68,7 @@ class ReaderMethodAttributesTest extends TestCase
         return [[DummyClass1WithMethodAttributes::class, 'nonexistingMethod']];
     }
 
-    /**
-     * @dataProvider getMethodAttributesWithNonExistingMethodNameDataProvider
-     */
+    #[DataProvider('getMethodAttributesWithNonExistingMethodNameDataProvider')]
     public function testgetMethodAttributesWithNonExistingMethodName(string $class, string $method_name): void
     {
         $reader = new AttributesReader($class);
@@ -105,9 +101,7 @@ class ReaderMethodAttributesTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider getMethodAttributesWithExistingMethodNameDataProvider
-     */
+    #[DataProvider('getMethodAttributesWithExistingMethodNameDataProvider')]
     public function testgetMethodAttributesWithExistingMethodName(string $class, string $method_name, string $attribute_name, mixed $expected): void
     {
         $reader = new AttributesReader($class);
@@ -120,9 +114,7 @@ class ReaderMethodAttributesTest extends TestCase
         return [[DummyClass1WithMethodAttributes::class, 'nonexistingMethod', 'TestAttribute2']];
     }
 
-    /**
-     * @dataProvider getMethodAttributeWithNonExistingMethodNameDataProvider
-     */
+    #[DataProvider('getMethodAttributeWithNonExistingMethodNameDataProvider')]
     public function testGetMethodAttributeByMethodNameWithNonExistingMethodName(string $class, string $method_name, string $attribute_name): void
     {
         $reader = new AttributesReader($class);
@@ -135,9 +127,7 @@ class ReaderMethodAttributesTest extends TestCase
         return [[DummyClass1WithMethodAttributes::class, 'getDummyMethod2WithAttributes', 'TestAttribute11']];
     }
 
-    /**
-     * @dataProvider getMethodAttributeWithNonExistingAttributeNameDataProvider
-     */
+    #[DataProvider('getMethodAttributeWithNonExistingAttributeNameDataProvider')]
     public function testGetMethodAttributeByMethodNameWithNonExistingAttributeName(string $class, string $method_name, string $attribute_name): void
     {
         $reader = new AttributesReader($class);
@@ -170,9 +160,7 @@ class ReaderMethodAttributesTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider getMethodAttributeWithExistingMethodNameDataProvider
-     */
+    #[DataProvider('getMethodAttributeWithExistingMethodNameDataProvider')]
     public function testgetMethodAttributeWithExistingMethodName(string $class, string $method_name, string $attribute_name, mixed $expected): void
     {
         $reader = new AttributesReader($class);

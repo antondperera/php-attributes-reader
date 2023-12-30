@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace AntonDPerera\PHPAttributesReader\Tests;
 
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
+
 use AntonDPerera\PHPAttributesReader\AttributesReader;
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\PropertyAttributes\DummyClass0WithoutPropertyAttributes;
 use AntonDPerera\PHPAttributesReader\Tests\Fixtures\PropertyAttributes\DummyClass1WithPropertyAttributes;
@@ -21,9 +23,7 @@ class ReaderPropertyAttributesTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider classesWithoutPropertyAttributesProvider
-     */
+    #[DataProvider('classesWithoutPropertyAttributesProvider')]
     public function testGetAllPropertyAttributesWithNoAttributes(string $class, mixed $expected): void
     {
         $reader = new AttributesReader($class);
@@ -55,9 +55,7 @@ class ReaderPropertyAttributesTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider classesWithPropertyAttributesProvider
-     */
+    #[DataProvider('classesWithPropertyAttributesProvider')]
     public function testGetAllPropertyAttributesWithAttributes(string $class, string $property_name, string $attribute_name, mixed $expected): void
     {
         $reader = new AttributesReader($class);
@@ -70,9 +68,7 @@ class ReaderPropertyAttributesTest extends TestCase
         return [[DummyClass1WithPropertyAttributes::class, 'nonexistingProperty']];
     }
 
-    /**
-     * @dataProvider getPropertyAttributesWithNonExistingPropertyNameDataProvider
-     */
+    #[DataProvider('getPropertyAttributesWithNonExistingPropertyNameDataProvider')]
     public function testgetPropertyAttributesWithNonExistingPropertyName(string $class, string $property_name): void
     {
         $reader = new AttributesReader($class);
@@ -105,9 +101,7 @@ class ReaderPropertyAttributesTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider getPropertyAttributesWithExistingPropertyNameDataProvider
-     */
+    #[DataProvider('getPropertyAttributesWithExistingPropertyNameDataProvider')]
     public function testgetPropertyAttributesWithExistingPropertyName(string $class, string $property_name, string $attribute_name, mixed $expected): void
     {
         $reader = new AttributesReader($class);
@@ -120,9 +114,7 @@ class ReaderPropertyAttributesTest extends TestCase
         return [[DummyClass1WithPropertyAttributes::class, 'nonexistingProperty', 'TestAttribute2']];
     }
 
-    /**
-     * @dataProvider getPropertyAttributeWithNonExistingPropertyNameDataProvider
-     */
+    #[DataProvider('getPropertyAttributeWithNonExistingPropertyNameDataProvider')]
     public function testGetPropertyAttributeByPropertyNameWithNonExistingPropertyName(string $class, string $property_name, string $attribute_name): void
     {
         $reader = new AttributesReader($class);
@@ -135,9 +127,7 @@ class ReaderPropertyAttributesTest extends TestCase
         return [[DummyClass1WithPropertyAttributes::class, 'property2_with_attributes', 'TestAttribute11']];
     }
 
-    /**
-     * @dataProvider getPropertyAttributeWithNonExistingAttributeNameDataProvider
-     */
+    #[DataProvider('getPropertyAttributeWithNonExistingAttributeNameDataProvider')]
     public function testGetPropertyAttributeByPropertyNameWithNonExistingAttributeName(string $class, string $property_name, string $attribute_name): void
     {
         $reader = new AttributesReader($class);
@@ -170,9 +160,7 @@ class ReaderPropertyAttributesTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider getPropertyAttributeWithExistingPropertyNameDataProvider
-     */
+    #[DataProvider('getPropertyAttributeWithExistingPropertyNameDataProvider')]
     public function testgetPropertyAttributeWithExistingPropertyName(string $class, string $property_name, string $attribute_name, mixed $expected): void
     {
         $reader = new AttributesReader($class);
