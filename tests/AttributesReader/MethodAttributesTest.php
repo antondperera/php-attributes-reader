@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace AntonDPerera\PHPAttributesReader\Tests;
+namespace AntonDPerera\PHPAttributesReader\Tests\AttributesReader;
 
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -14,7 +14,7 @@ use AntonDPerera\PHPAttributesReader\Tests\Fixtures\MethodAttributes\DummyClass2
 use AntonDPerera\PHPAttributesReader\Exceptions\MethodNotFoundException;
 use AntonDPerera\PHPAttributesReader\Exceptions\MethodAttributeNotFoundException;
 
-class ReaderMethodAttributesTest extends TestCase
+class MethodAttributesTest extends TestCase
 {
     public static function classesWithoutMethodAttributesProvider(): array
     {
@@ -165,6 +165,70 @@ class ReaderMethodAttributesTest extends TestCase
     {
         $reader = new AttributesReader($class);
         $actual = ($reader->getMethodAttribute($method_name, $attribute_name))->getName();
+        $this->assertSame($expected, $actual);
+    }
+
+    public static function hasMethodAttributesDataProvider(): array
+    {
+        return [
+            [
+
+                DummyClass0WithoutMethodAttributes::class,
+                null,
+                false,
+            ],
+            [
+
+                DummyClass0WithoutMethodAttributes::class,
+                'getDummyMethod2WithAttributes',
+                false,
+            ],
+            [
+
+                DummyClass0WithoutMethodAttributes::class,
+                'nonExistingMethod',
+                false,
+            ],
+            [
+
+                DummyClass1WithMethodAttributes::class,
+                null,
+                true
+            ],
+            [
+
+                DummyClass1WithMethodAttributes::class,
+                'nonExistingMethod',
+                false
+            ],
+            [
+                DummyClass1WithMethodAttributes::class,
+                'getDummyMethod2WithAttributes',
+                true
+            ],
+            [
+                DummyClass2WithMethodAttributes::class,
+                null,
+                true
+            ],
+            [
+                DummyClass2WithMethodAttributes::class,
+                'nonExistingMethod',
+                false
+            ],
+            [
+                DummyClass2WithMethodAttributes::class,
+                'getDummyMethod3WithAttributes',
+                true
+            ],
+        ];
+    }
+
+    #[DataProvider('hasMethodAttributesDataProvider')]
+    public function testHasMethodAttributes(string $class, ?string $method_name, bool $expected): void
+    {
+        $reader = new AttributesReader($class);
+        $actual = $reader->hasMethodAttributes($method_name);
         $this->assertSame($expected, $actual);
     }
 }

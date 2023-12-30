@@ -57,4 +57,17 @@ trait PropertyAttributesSupport
         }
         return $property_attributes_list[$attribute_name];
     }
+
+    public function hasPropertyAttributes(?string $property_name = null): bool
+    {
+        if(is_null($property_name)){
+            return !empty($this->property_attributes);
+        }
+
+        if (!array_key_exists($property_name, $this->property_attributes)) {
+            return false;
+        }
+
+        return !empty($this->property_attributes[$property_name]);
+    }
 }

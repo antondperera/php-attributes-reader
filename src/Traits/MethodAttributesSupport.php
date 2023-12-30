@@ -57,4 +57,17 @@ trait MethodAttributesSupport
         }
         return $method_attributes_list[$attribute_name];
     }
+
+    public function hasMethodAttributes(?string $method_name = null): bool
+    {
+        if(is_null($method_name)){
+            return !empty($this->method_attributes);
+        }
+
+        if (!array_key_exists($method_name, $this->method_attributes)) {
+            return false;
+        }
+
+        return !empty($this->method_attributes[$method_name]);
+    }
 }
