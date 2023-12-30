@@ -164,7 +164,7 @@ class ReaderPropertyAttributesTest extends TestCase
     public function testgetPropertyAttributeWithExistingPropertyName(string $class, string $property_name, string $attribute_name, mixed $expected): void
     {
         $reader = new AttributesReader($class);
-        $actual = ($reader->getPropertyAttribute($property_name,$attribute_name))->getName();
+        $actual = ($reader->getPropertyAttribute($property_name, $attribute_name))->getName();
         $this->assertSame($expected, $actual);
     }
 }

@@ -164,7 +164,7 @@ class ReaderMethodAttributesTest extends TestCase
     public function testgetMethodAttributeWithExistingMethodName(string $class, string $method_name, string $attribute_name, mixed $expected): void
     {
         $reader = new AttributesReader($class);
-        $actual = ($reader->getMethodAttribute($method_name,$attribute_name))->getName();
+        $actual = ($reader->getMethodAttribute($method_name, $attribute_name))->getName();
         $this->assertSame($expected, $actual);
     }
 }

@@ -99,14 +99,14 @@ class AttributeTest extends TestCase
                 DummySimpleClass3WithClassAttributesAndComplexArguments::class,
                 0,
                 [
-                    new Argument((object)["property1"=>"property1 value"])
+                    new Argument((object)["property1" => "property1 value"])
                 ]
             ],
             [
                 DummySimpleClass3WithClassAttributesAndComplexArguments::class,
                 1,
                 [
-                    new Argument(["key1"=>"key1 value"])
+                    new Argument(["key1" => "key1 value"])
                 ]
             ],
             [
