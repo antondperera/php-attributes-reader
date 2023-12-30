@@ -1,4 +1,4 @@
-## To-Do List
+# To-Do List
 
 ### Tasks for v0.1.0
 - [x] Library initialization with minimal docker setup
