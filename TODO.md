@@ -1,6 +1,6 @@
 # To-Do List
 
-### Tasks for v0.1.0
+### v0.1.0
 - [x] Library initialization with minimal docker setup
 - [x] Updating composer.json file with propper details
 - [x] Adding a To-Do list
@@ -23,8 +23,15 @@
 - [x] [Issue #35](https://github.com/antondperera/php-attributes-reader/issues/35) Introduce separate AttributeNotFound exceptions for Class, Method separately.
 - [x] [Issue #29](https://github.com/antondperera/php-attributes-reader/issues/29) Introduce necessary logic to prepare a list of Property Attributes and keep that in Reader class along with necessary tests.
 - [x] [Issue #42](https://github.com/antondperera/php-attributes-reader/issues/42) dataProvider docblock annotation replaced with DataProvider attribute in tests.
+- [x] [Issue #48](https://github.com/antondperera/php-attributes-reader/issues/48) Finalize necessary docs and files related for v0.1.0.
 
 
-### Tasks After v0.1.0
+### v0.2.0
+- [ ] [Issue #47](https://github.com/antondperera/php-attributes-reader/issues/47) Arrange code coverage and reports along with necessary changes.
+- [ ] [Issue #45](https://github.com/antondperera/php-attributes-reader/issues/45) Introduce functionality to get Attributes of a class constant.
+- [ ] [Issue #46](https://github.com/antondperera/php-attributes-reader/issues/46) Introduce functionality to get Attributes of a class method parameter.
+
+
+### Version not decided
 - [ ] [Issue #43](https://github.com/antondperera/php-attributes-reader/issues/43) Add functionality to get Attribute instance.
 - [ ] [Issue #21](https://github.com/antondperera/php-attributes-reader/issues/21) Introduce necessary logic to determine class constants and regular constants along with necessary tests.
