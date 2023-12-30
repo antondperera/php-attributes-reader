@@ -167,4 +167,68 @@ class PropertyAttributesTest extends TestCase
         $actual = ($reader->getPropertyAttribute($property_name, $attribute_name))->getName();
         $this->assertSame($expected, $actual);
     }
+
+    public static function hasPropertyAttributesDataProvider(): array
+    {
+        return [
+            [
+
+                DummyClass0WithoutPropertyAttributes::class,
+                null,
+                false,
+            ],
+            [
+
+                DummyClass0WithoutPropertyAttributes::class,
+                'property1_without_attributes',
+                false,
+            ],
+            [
+
+                DummyClass0WithoutPropertyAttributes::class,
+                'property_non_existing',
+                false,
+            ],
+            [
+
+                DummyClass1WithPropertyAttributes::class,
+                null,
+                true
+            ],
+            [
+
+                DummyClass1WithPropertyAttributes::class,
+                'property_non_existing',
+                false
+            ],
+            [
+                DummyClass1WithPropertyAttributes::class,
+                'property2_with_attributes',
+                true
+            ],
+            [
+                DummyClass2WithPropertyAttributes::class,
+                null,
+                true
+            ],
+            [
+                DummyClass2WithPropertyAttributes::class,
+                'property_non_existing',
+                false
+            ],
+            [
+                DummyClass2WithPropertyAttributes::class,
+                'property3_with_attributes',
+                true
+            ],
+        ];
+    }
+
+    #[DataProvider('hasPropertyAttributesDataProvider')]
+    public function testHasPropertyAttributes(string $class, ?string $property_name, bool $expected): void
+    {
+        $reader = new AttributesReader($class);
+        $actual = $reader->hasPropertyAttributes($property_name);
+        $this->assertSame($expected, $actual);
+    }
 }
