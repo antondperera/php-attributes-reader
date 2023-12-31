@@ -72,14 +72,14 @@ var_dump($attributes_reader->getClassAttributes()); // returns list of Class att
 echo $attributes_reader->hasMethodAttributes(); // returns true
 echo $attributes_reader->hasMethodAttributes('testMethod2'); // returns false
 echo $attributes_reader->hasMethodAttributes('testMethod1'); // returns true
-var_dump($attributes_reader->getMethodAttributes('testMethod1')); // returns list of Method attributes 
+var_dump($attributes_reader->getMethodAttributes('testMethod1')); // returns list of attributes for the given method. 
 
 
-// Method attributes
+// Property attributes
 echo $attributes_reader->hasPropertyAttributes(); // returns true
 echo $attributes_reader->hasPropertyAttributes('test_property_2'); // returns false
 echo $attributes_reader->hasPropertyAttributes('test_property_1'); // returns true
-var_dump($attributes_reader->getPropertyAttributes('test_property_1')); // returns list of Method attributes 
+var_dump($attributes_reader->getPropertyAttributes('test_property_1')); // returns list of attributes for the given property.
 
 ```
 
@@ -88,17 +88,17 @@ For further details check the Documentation.
 
 ## Documentation
 
-Check the [PHP Attributes Reader docs](https://php-attributes-reader.gitbook.io) for a complete guide with all the methods and examples, and learn how to use them.
+Check the [PHP Attributes Reader docs](https://anton-d-perera-open-source-libs.gitbook.io/php-attributes-reader/) for a complete guide with all the methods and examples, and learn how to use them.
 
 
 
 ## Limitations
 
-PHP Attributes have many use cases. With the current version, PHP Attributes Reader covers much simpler usages of them. Check the [Limitations](https://php-attributes-reader.gitbook.io/introduction/limitations) section of PHP Attributes Reader docs for a more detailed guide. 
+PHP Attributes have many use cases. With the current version, PHP Attributes Reader covers much simpler usages of them. Check the [Limitations](hhttps://anton-d-perera-open-source-libs.gitbook.io/php-attributes-reader/limitations) section of PHP Attributes Reader docs for a more detailed guide. 
 
 
 
 ## Contribute
 
-Please refer to the [Contribution Guide](https://php-attributes-reader.gitbook.io/introduction/contribute) for information on how to contribute to PHP Attributes Reader.
+Please refer to the [Contribution Guide](https://anton-d-perera-open-source-libs.gitbook.io/php-attributes-reader/contribution) for information on how to contribute to PHP Attributes Reader.
 
