@@ -1,6 +1,6 @@
 # PHP Attributes Reader
 
-Welcome to PHP Attributes Reader, a lightweight and efficient library designed for effortlessly extracting and working with class, method, and property attributes in PHP 8. With the advent of attributes in PHP 8, this library simplifies the process of reading and leveraging these attributes in your codebase. Whether you're exploring class, method or property attributes, PHP Attributes Reader provides a user-friendly interface for seamless attribute retrieval so you don't have to deal with PHP's Reflection API directly. Enhance your development experience by easily tapping into the power of PHP 8 attributes with this intuitive and versatile library.
+Welcome to PHP Attributes Reader, a lightweight and efficient library designed for effortlessly extracting and working with class, method, and property attributes in PHP 8. With the introduction of attributes in PHP 8, this library simplifies the process of reading and leveraging these attributes in your codebase. Whether you're exploring class, method, or property attributes, PHP Attributes Reader provides a user-friendly interface for seamless attribute retrieval, eliminating the need to deal with PHP's Reflection API directly. Enhance your development experience by easily tapping into the power of PHP 8 attributes with this intuitive and versatile library.
 
 ## Requirements
 
@@ -14,7 +14,7 @@ You can install via [Composer](http://getcomposer.org/). Run the following comma
 composer require antondperera/php-attributes-reader
 ```
 
-Make sure you are using Composer's [autoload](https://getcomposer.org/doc/01-basic-usage.md#autoloading):
+Ensure you are using Composer's [autoload](https://getcomposer.org/doc/01-basic-usage.md#autoloading):
 
 ```php
 require_once 'vendor/autoload.php';
@@ -22,9 +22,9 @@ require_once 'vendor/autoload.php';
 
 ## Getting Started
 
-Simple usage looks like:
+Sample codes with simplest usages:
 
-Class with Attributes
+PHP Class with Class, Method and Property Attributes
 ```php
 <?php
 
@@ -53,7 +53,7 @@ class Abc
 }
 ```
 
-
+Simplest way on reading those Attributes
 ```php
 <?php
 
@@ -88,17 +88,17 @@ For further details check the Documentation.
 
 ## Documentation
 
-Check the [PHP Attributes Reader docs](https://php-attributes-reader.gitbook.io) for completed guide with all the methods and examples that you can use and how to use them.
+Check the [PHP Attributes Reader docs](https://php-attributes-reader.gitbook.io) for a complete guide with all the methods and examples, and learn how to use them.
 
 
 
 ## Limitations
 
-PHP Attributes has many use cases. With the current version of PHP Attributes Reader covers much simpler usages of it. Check the [Limitations](https://php-attributes-reader.gitbook.io/introduction/limitations) section of PHP Attributes Reader docs for more detailed guide. 
+PHP Attributes have many use cases. With the current version, PHP Attributes Reader covers much simpler usages of them. Check the [Limitations](https://php-attributes-reader.gitbook.io/introduction/limitations) section of PHP Attributes Reader docs for a more detailed guide. 
 
 
 
 ## Contribute
 
-Please refer to [Contribution Guide](https://php-attributes-reader.gitbook.io/introduction/contribute) for information on how to contribute to PHP Attributes Reader.
+Please refer to the [Contribution Guide](https://php-attributes-reader.gitbook.io/introduction/contribute) for information on how to contribute to PHP Attributes Reader.
 
