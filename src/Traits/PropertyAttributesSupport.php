@@ -27,7 +27,7 @@ trait PropertyAttributesSupport
         }
     }
 
-    public function getPropertyAttributes(?string $property_name = null): null | array | PropertyNotFoundException
+    public function getPropertyAttributes(?string $property_name = null): array | PropertyNotFoundException
     {
         if (is_null($property_name)) {
             return $this->property_attributes;
@@ -46,7 +46,7 @@ trait PropertyAttributesSupport
         return true;
     }
 
-    public function getPropertyAttribute(string $property_name, string $attribute_name): null | Attribute | PropertyAttributeNotFoundException
+    public function getPropertyAttribute(string $property_name, string $attribute_name): Attribute | PropertyAttributeNotFoundException
     {
         if ($this->isPropertyExistsInPropertyAttributesList($property_name)) {
             $property_attributes_list = $this->getPropertyAttributes($property_name);
