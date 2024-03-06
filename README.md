@@ -88,17 +88,17 @@ For further details check the Documentation.
 
 ## Documentation
 
-Check the [PHP Attributes Reader docs](https://anton-d-perera-open-source-libs.gitbook.io/php-attributes-reader/) for a complete guide with all the methods and examples, and learn how to use them.
+Check the [PHP Attributes Reader docs](https://anton-d-perera.gitbook.io/php-attributes-reader/) for a complete guide with all the methods and examples, and learn how to use them.
 
 
 
 ## Limitations
 
-PHP Attributes have many use cases. With the current version, PHP Attributes Reader covers much simpler usages of them. Check the [Limitations](hhttps://anton-d-perera-open-source-libs.gitbook.io/php-attributes-reader/limitations) section of PHP Attributes Reader docs for a more detailed guide. 
+PHP Attributes have many use cases. With the current version, PHP Attributes Reader covers much simpler usages of them. Check the [Limitations](hhttps://anton-d-perera.gitbook.io/php-attributes-reader/limitations) section of PHP Attributes Reader docs for a more detailed guide. 
 
 
 
 ## Contribute
 
-Please refer to the [Contribution Guide](https://anton-d-perera-open-source-libs.gitbook.io/php-attributes-reader/contribution) for information on how to contribute to PHP Attributes Reader.
+Please refer to the [Contribution Guide](https://anton-d-perera.gitbook.io/php-attributes-reader/contribution) for information on how to contribute to PHP Attributes Reader.
 
