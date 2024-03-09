@@ -24,8 +24,8 @@
 - [x] [Issue #29](https://github.com/antondperera/php-attributes-reader/issues/29) Introduce necessary logic to prepare a list of Property Attributes and keep that in Reader class along with necessary tests.
 - [x] [Issue #42](https://github.com/antondperera/php-attributes-reader/issues/42) dataProvider docblock annotation replaced with DataProvider attribute in tests.
 - [x] [Issue #48](https://github.com/antondperera/php-attributes-reader/issues/48) Finalize necessary docs and files related for v0.1.0.
-- [ ] [Issue #50](https://github.com/antondperera/php-attributes-reader/issues/50) Introduce necessary functions to figure out whether there are attributes or not for a given method or a property.
-
+- [x] [Issue #50](https://github.com/antondperera/php-attributes-reader/issues/50) Introduce necessary functions to figure out whether there are attributes or not for a given method or a property.
+- [x] [Issue #52](https://github.com/antondperera/php-attributes-reader/issues/52) Update the README.md file with simple guide and links for the documentation.
 
 ### v0.2.0
 - [ ] [Issue #47](https://github.com/antondperera/php-attributes-reader/issues/47) Arrange code coverage and reports along with necessary changes.
